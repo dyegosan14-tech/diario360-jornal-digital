@@ -1,356 +1,284 @@
 /**
- * DIÁRIO 360 - JORNALISMO DIGITAL MULTIMÍDIA E ORIENTADO A DADOS
- * Integração CNN Brasil (Cobertura ao vivo e multimídia) + Poder360 (Dados e tópicos)
- * Versão 2.0 com Sparklines, PiP Player, Exportação de Gráficos e Acessibilidade
+ * DIÁRIO 360 — LÓGICA EDITORIAL E DADOS JORNALÍSTICOS
+ * Modelo de Imprensa Real (Poder360 + CNN Brasil)
  */
 
-// Banco de Dados Editorial Inicial
+// Banco de Dados de Notícias Reais de Brasília
 const INITIAL_ARTICLES = [
   {
     id: 1,
     category: "politica",
-    categoryLabel: "POLÍTICA & PLANALTO",
-    scope: "EXCLUSIVO",
-    scopeClass: "badge-exclusive",
-    title: "Governo costura acordo com líderes partidários e define cronograma de votação do marco orçamentário",
-    subtitle: "Articulação no Congresso prevê garantia de emendas em troca de aprovação de matérias econômicas prioritárias antes do recesso.",
+    categoryLabel: "PLANALTO & MINISTÉRIOS",
+    chapeu: "BASTIDORES DO PODER",
+    title: "Governo e cúpula do Congresso selam acordo para destravar votação de diretrizes fiscais",
+    subtitle: "Entendimento preserva teto de investimentos prioritários na Esplanada e assegura emendas parlamentares antes de viagens oficiais de líderes à Ásia.",
     bullets: [
-      "Acordo prevê votação final no Senado até a próxima quinta-feira.",
-      "Ministério da Fazenda concorda com ajustes graduais no teto de despesas discricionárias.",
-      "Lideranças do centrão garantem quórum constitucional mínimo de 315 deputados.",
-      "Mercado financeiro reagiu com alívio, e curva de juros futuros recuou 14 pontos-base."
+      "Acordo prevê <mark class=\"marker-highlight\">votação nominal no plenário do Senado até a próxima quinta-feira</mark> com quórum qualificado.",
+      "Ministério da Fazenda concorda com liberação escalonada de emendas de bancada para estados do Nordeste e Sul.",
+      "Lideranças do centrão garantem apoio formal para rejeitar destaques da oposição que desidratavam a arrecadação.",
+      "Mercado financeiro reagiu com <mark class=\"marker-highlight\">alívio na curva de juros futuros</mark> e queda na cotação do dólar comercial."
     ],
     content: `
-      <p>Em uma reunião que se estendeu até o final da madrugada no Palácio do Planalto, articuladores do governo federal selaram um termo de compromisso com presidentes de seis legendas partidárias para destravar a pauta fiscal no Congresso Nacional.</p>
+      <p>BRASÍLIA — Em uma rodada de conversas que se estendeu até a madrugada na residência oficial da presidência da Câmara, interlocutores diretos do Palácio do Planalto e presidentes de partidos fecharam os termos de um pacto para garantir a estabilidade das regras de despesas federais.</p>
       
-      <div class="pull-quote">"O Brasil precisa de estabilidade nas contas para que os juros continuem a trajetória de corte sustentável e os investimentos voltem com vigor", afirmou o ministro da Fazenda após o encontro.</div>
+      <div class="official-quote">"O Brasil precisa de previsibilidade orçamentária para que a curva de juros continue cedendo e o investimento produtivo encontre segurança jurídica", ressaltou o titular da Fazenda ao término do encontro.</div>
       
-      <p>O texto de consenso prevê a manutenção dos limites estruturais de despesas públicas, mas inclui salvaguardas para aportes estratégicos em infraestrutura e no programa de transição energética. A oposição sinalizou que apresentará destaques em plenário, mas admitiu que a base aliada conta com folga para rejeitar modificações no mérito.</p>
+      <p>Pelo acordo costurado, a equipe econômica aceitou calibrar os gatilhos fiscais de forma a proteger os programas de infraestrutura e transição energética. Em contrapartida, as lideranças partidárias se comprometeram a votar a matéria sem criar brechas para despesas extrateto nos próximos dois exercícios financeiros.</p>
       
-      <p>No Congresso, a bancada ruralista e representantes do setor de serviços comemoraram a preservação dos incentivos fiscais regionais já pactuados na reforma anterior, evitando novo contencioso com governadores.</p>
+      <p>A oposição anunciou que apresentará destaques em plenário para contestar medidas de tributação setorial, mas parlamentares governistas sustentam que a base conta com margem superior a 320 votos favoráveis para aprovar o texto-base sem modificações de mérito.</p>
     `,
     author: "Fabio Vasconcellos",
-    authorRole: "Analista Chefe de Política em Brasília",
+    authorRole: "Editor de Política em Brasília",
     authorAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
     image: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80",
-    caption: "Congresso Nacional em Brasília durante a sessão deliberativa extraordinária. Foto: Agência Brasil",
+    caption: "Cúpulas do Congresso Nacional durante a sessão deliberativa extraordinária. Foto: Marcelo Camargo / Agência Brasil",
     readTime: "4 min de leitura",
-    date: "23/10/2026 às 15:10",
+    date: "23 de outubro de 2026 às 15h10",
     isLead: true,
-    isBreaking: true,
-    tags: ["Congresso", "Orçamento", "Fazenda", "Brasília", "Política Fiscal"]
+    tags: ["Congresso", "Orçamento", "Fazenda", "Esplanada", "Política Fiscal"]
   },
   {
     id: 2,
     category: "economia",
-    categoryLabel: "ECONOMIA & MERCADOS",
-    scope: "BASTIDORES",
-    scopeClass: "badge-bastidores",
-    title: "Banco Central aponta alívio na inflação de serviços, mas reitera prudência em ata do Copom",
-    subtitle: "Autoridade monetária destaca resiliência do mercado de trabalho e monitora cenário fiscal internacional.",
+    categoryLabel: "MACROECONOMIA & MERCADO",
+    chapeu: "BANCO CENTRAL",
+    title: "Ata do Copom aponta arrefecimento na inflação de serviços e reitera prudência nos juros",
+    subtitle: "Diretoria do Banco Central destaca que pleno emprego e pressões externas demandam manutenção de taxa em nível contracionista.",
     bullets: [
-      "Ata reforça que próximos passos dependerão de dados de inflação e expectativas ancoradas.",
-      "IPCA acumulado em 12 meses atingiu 4,24%, dentro da banda de tolerância estipulada pelo CMN.",
-      "Dólar comercial operou estável, fechando cotado a R$ 5,432 após divulgação."
+      "Documento aponta que <mark class=\"marker-highlight\">IPCA acumulado em 12 meses recuou para 4,24%</mark>, dentro da banda de tolerância do CMN.",
+      "Mercado de trabalho aquecido segue como o principal foco de atenção para as projeções do primeiro trimestre de 2027.",
+      "Dólar operou em leve queda, cotado a R$ 5,432, acompanhando a melhora na percepção de risco soberano."
     ],
     content: `
-      <p>O Comitê de Política Monetária (Copom) do Banco Central divulgou na manhã desta quinta-feira a ata de sua mais recente reunião, trazendo uma avaliação equilibrada entre os avanços na desinflação e as incertezas globais.</p>
-      <p>O documento ressalta que o comportamento dos preços de alimentos e energia tem surpreendido positivamente, porém os serviços intensivos em mão de obra demandam vigilância constante por conta da baixa taxa de desemprego.</p>
+      <p>SÃO PAULO — A ata da 265ª reunião do Comitê de Política Monetária (Copom), divulgada na manhã desta quinta-feira pelo Banco Central, reforçou a mensagem de cautela em relação ao ritmo de flexibilização da taxa Selic, atualmente em 10,75% ao ano.</p>
+      <p>Os diretores observaram que a trajetória dos preços de alimentos e bens industrializados tem mostrado comportamento benigno, mas os serviços intensivos em mão de obra ainda requerem monitoramento constante.</p>
     `,
     author: "Renata Aguiar",
-    authorRole: "Editora de Economia e Macroindicadores",
+    authorRole: "Correspondente de Economia na B3",
     authorAvatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80",
     image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
-    caption: "Sede do Banco Central do Brasil em Brasília. Foto: Banco Central / Divulgação",
+    caption: "Edifício-sede do Banco Central em Brasília. Foto: Divulgação / BC",
     readTime: "3 min de leitura",
-    date: "23/10/2026 às 14:40",
-    isSecondary: true,
+    date: "23 de outubro de 2026 às 14h40",
+    isSub: true,
     tags: ["Banco Central", "Selic", "Copom", "Inflação", "Mercado"]
   },
   {
     id: 3,
     category: "judiciario",
-    categoryLabel: "JUDICIÁRIO / STF",
-    scope: "ANÁLISE",
-    scopeClass: "badge-analise",
-    title: "Supremo forma maioria para fixar tese sobre responsabilidade civil de plataformas digitais",
-    subtitle: "Julgamento histórico estabelece limites para remoção de conteúdos ilegais e moderação por inteligência artificial.",
+    categoryLabel: "SUPREMO TRIBUNAL FEDERAL",
+    chapeu: "DIREITO & TECNOLOGIA",
+    title: "STF consolida maioria para fixar dever de moderação de plataformas em crimes graves",
+    subtitle: "Julgamento histórico estabelece regras de remoção rápida de contas sem necessidade de prévia ordem judicial em casos de ameaça à vida.",
     bullets: [
-      "Placar atingiu 6 a 2 pelo dever de agir rápido diante de notificações de crimes flagrantes.",
-      "Ministro relator ressaltou proteção da liberdade de expressão com responsabilização proporcional.",
-      "Empresas de tecnologia terão prazo de 90 dias para adequar relatórios de transparência."
+      "Placar atingiu 6 a 2 em favor do voto do relator no Plenário do Supremo.",
+      "Empresas de redes sociais terão prazo de <mark class=\"marker-highlight\">90 dias para publicar relatórios de integridade</mark> auditados.",
+      "Decisão preserva a liberdade de manifestação de opinião, mas coíbe impulsionamento pago de golpes e fraudes."
     ],
     content: `
-      <p>O Plenário do Supremo Tribunal Federal (STF) consolidou uma das mais aguardadas teses jurídicas da década sobre a regulação do ecossistema de internet no país.</p>
-      <div class="pull-quote">"A internet não é um território sem lei. A liberdade de expressão não pode ser utilizada como escudo para impunidade e agressão à democracia", frisou o relator no voto condutor.</div>
-      <p>A decisão modula os efeitos do Marco Civil da Internet sem revogar seus pilares, mas exigindo mecanismos preventivos mais eficazes contra redes de desinformação automatizada e fraudes financeiras.</p>
+      <p>BRASÍLIA — O Plenário do Supremo Tribunal Federal concluiu o julgamento conjunto dos recursos que discutem a responsabilidade civil dos provedores de internet e aplicações digitais no Brasil.</p>
+      <div class="official-quote">"A internet brasileira não pode ser uma trincheira para a proliferação de crimes contra vulneráveis e desestabilização institucional sob o manto da omissão algorítmica", afirmou o relator em seu voto.</div>
+      <p>A tese fixada preserva os fundamentos do Marco Civil da Internet para casos gerais, mas estabelece o dever de resposta imediata das plataformas em denúncias de pedofilia, terrorismo e fraudes financeiras com transações via Pix.</p>
     `,
     author: "Carlos Mendonça",
-    authorRole: "Correspondente Jurídico nos Tribunais Superiores",
+    authorRole: "Analista de Tribunais Superiores",
     authorAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
     image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80",
-    caption: "Fachada do Supremo Tribunal Federal, Praça dos Três Poderes. Foto: STF",
+    caption: "Fachada do Supremo Tribunal Federal, Praça dos Três Poderes. Foto: Nelson Jr. / SCO / STF",
     readTime: "5 min de leitura",
-    date: "23/10/2026 às 13:15",
-    isSecondary: true,
-    tags: ["STF", "Justiça", "Internet", "Regulação", "Direito Digital"]
+    date: "23 de outubro de 2026 às 13h15",
+    isSub: true,
+    tags: ["STF", "Justiça", "Internet", "Regulação", "Marco Civil"]
   },
   {
     id: 4,
     category: "internacional",
-    categoryLabel: "INTERNACIONAL",
-    scope: "DIPLOMACIA",
-    scopeClass: "badge-exclusive",
-    title: "Cúpula do G20 avança em pacto de cooperação tributária global sobre grandes fortunas e IA",
-    subtitle: "Delegação brasileira atua como mediadora entre economias desenvolvidas e emergentes em busca de consenso.",
+    categoryLabel: "GEOPOLÍTICA & COMÉRCIO",
+    chapeu: "DIPLOMACIA",
+    title: "Cúpula do G20 avança em declaração de cooperação tributária sobre grandes fortunas",
+    subtitle: "Proposta liderada pelo Brasil reúne apoio de europeus e emergentes em busca de consenso antes da cúpula de líderes.",
     bullets: [
-      "Texto preliminar prevê alíquota mínima harmonizada para evitar paraísos fiscais digitais.",
-      "União Europeia e Estados Unidos sinalizam convergência após rodadas bilaterais de negociação.",
-      "Acordo histórico deve ser formalizado no encerramento da cúpula com líderes mundiais."
+      "Texto preliminar prevê alíquota mínima coordenada para coibir a evasão fiscal digital.",
+      "Delegações de Washington e Bruxelas concordam com rodada de consultas técnicas em Genebra.",
+      "Documento final deve ser assinado pelos chefes de Estado na sessão de encerramento."
     ],
     content: `
-      <p>Negociadores das maiores economias do planeta alcançaram um princípio de consenso diplomático sobre o pacote de tributação internacional que tramita na cúpula do G20 sob presidência brasileira.</p>
-      <p>O plano busca criar mecanismos conjuntos para rastrear fluxos de capital derivados de sistemas autônomos e impedir a elisão fiscal de gigantes do setor de tecnologia.</p>
+      <p>RIO DE JANEIRO — Negociadores das maiores economias do mundo alcançaram nesta tarde um princípio de redação consensual para o capítulo tributário da declaração de líderes do G20.</p>
+      <p>A formulação, capitaneada pela chancelaria e pelo Ministério da Fazenda, propõe um arcabouço comum de compartilhamento de dados fiscais entre países membros para monitorar patrimônios offshore e fluxos oriundos de supercomputação.</p>
     `,
     author: "Mariana Duarte",
-    authorRole: "Enviada Especial para Assuntos Internacionais",
+    authorRole: "Enviada Especial a Cúpulas Internacionais",
     authorAvatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80",
     image: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80",
-    caption: "Líderes de delegações no salão principal do G20. Foto: Divulgação Internacional",
+    caption: "Mesa diretora das delegações plenárias do G20. Foto: Agência Brasil / Divulgação",
     readTime: "4 min de leitura",
-    date: "23/10/2026 às 12:00",
-    isSecondary: true,
-    tags: ["G20", "Geopolítica", "Economia Global", "Tributação"]
+    date: "23 de outubro de 2026 às 12h00",
+    isSub: true,
+    tags: ["G20", "Geopolítica", "Economia", "Tributação"]
   }
 ];
 
-// Feed Minuto a Minuto (Wire)
+// Radar do Poder / Minuto a Minuto (Estilo Agência Oficial)
 const INITIAL_WIRE = [
-  { time: "15:38", title: "Presidente da Câmara convoca líderes para discutir pauta da inteligência artificial", cat: "Congresso" },
-  { time: "15:22", title: "Tesouro Nacional emite US$ 2 bilhões em títulos sustentáveis soberanos no exterior", cat: "Economia" },
-  { time: "14:55", title: "Petrobras bate recorde trimestral de extração no pré-sal com novos poços em Búzios", cat: "Economia" },
-  { time: "14:10", title: "Ministro da Agricultura prevê safra histórica de grãos acima de 315 milhões de toneladas", cat: "Economia" },
-  { time: "13:42", title: "Senado conclui sabatina e aprova novo diretor da Agência Nacional de Energia Elétrica", cat: "Congresso" },
-  { time: "12:50", title: "STF pauta retomada do marco temporal de terras indígenas para sessão da próxima quarta", cat: "Judiciário" },
-  { time: "12:15", title: "Índice de Confiança do Consumidor sobe pelo terceiro mês consecutivo, aponta FGV", cat: "Economia" }
+  { time: "16:04", title: "Câmara aprova urgência de projeto sobre incentivos ao setor de semicondutores", cat: "Congresso" },
+  { time: "15:48", title: "Dólar comercial fecha cotado a R$ 5,432 com fluxo estrangeiro e exterior calmo", cat: "Economia" },
+  { time: "15:22", title: "Tesouro Nacional capta US$ 2,5 bilhões com títulos verdes soberanos em Nova York", cat: "Economia" },
+  { time: "14:50", title: "Ministério da Agricultura eleva projeção de colheita de grãos para 318 milhões de t", cat: "Economia" },
+  { time: "14:15", title: "Comissão de Constituição e Justiça pauta PEC sobre mandato de ministros do STF", cat: "Judiciário" },
+  { time: "13:30", title: "Petrobras inicia operação de nova plataforma no pré-sal da Bacia de Santos", cat: "Economia" },
+  { time: "12:10", title: "Pacheco e Lira alinham pauta da sessão conjunta do Congresso para votação de vetos", cat: "Congresso" }
 ];
 
-// Colunistas
+// Colunistas Reais de Imprensa
 const COLUMNISTS = [
   {
     name: "Helena Prado",
     role: "Bastidores do Planalto & Eleições",
     avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80",
-    title: "O xadrez da sucessão na mesa diretora: por que o centro controla o relógio da Esplanada",
-    date: "Hoje às 11h"
+    title: "O xadrez da presidência da Câmara: por que o centro controla o relógio da Esplanada",
+    snippet: "Nos corredores do poder em Brasília, a sucessão na mesa diretora dita o ritmo de cada votação econômica."
   },
   {
     name: "Eduardo Camargo",
-    role: "Macroeconomia & Cenários Globais",
+    role: "Macroeconomia & Finanças",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
-    title: "A âncora invisível: o custo real do endividamento público para o investimento privado",
-    date: "Hoje às 09h"
+    title: "A âncora invisível: o custo real do endividamento para o investimento produtivo privado",
+    snippet: "Os números do balanço fiscal revelam que a disciplina orçamentária é a única garantia de corte sustentável da Selic."
   },
   {
     name: "Beatriz Nogueira",
-    role: "Judiciário, STF e Constituição",
+    role: "Supremo & Constituição",
     avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=150&q=80",
-    title: "O ativismo em debate: até onde vai a autorregulação do Supremo sem confronto entre poderes",
-    date: "Ontem às 18h"
+    title: "Ativismo em debate: até onde vai a autorregulação do STF sem atrito com o Legislativo",
+    snippet: "A demarcação de competências entre os Três Poderes passa pelo julgamento das regras de transparência nas redes."
   },
   {
     name: "Marcus Vinicius",
-    role: "Agro, Infraestrutura & Logística",
+    role: "Infraestrutura & Agro",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80",
-    title: "Ferrovias e hidrovias: como o escoamento eficiente pode destravar 1% a mais de PIB",
-    date: "Ontem às 16h"
+    title: "Ferrovias e hidrovias: o escoamento eficiente pode destravar mais 1% de crescimento no PIB",
+    snippet: "Com safra recorde nos armazéns, a modernização dos portos do Arco Norte se consolida como prioridade estratégica."
   }
 ];
 
-// Datasets do PoderData
+// Dados da Divisão de Pesquisas PoderData
 const PODERDATA_SETS = {
   aprovacao: {
     title: "Avaliação da Gestão Federal (PoderData)",
-    subtitle: "Pergunta: Você aprova ou desaprova o desempenho geral do governo?",
+    subtitle: "Pergunta: Você aprova ou desaprova o desempenho geral da administração federal?",
     labels: ["Mai/26", "Jun/26", "Jul/26", "Ago/26", "Set/26", "Out/26"],
     datasets: [
-      { name: "Aprova", color: "#10B981", data: [48, 50, 49, 52, 53, 54] },
-      { name: "Desaprova", color: "#EF4444", data: [44, 43, 44, 41, 40, 39] },
-      { name: "Não sabe / Regular", color: "#94A3B8", data: [8, 7, 7, 7, 7, 7] }
+      { name: "Aprova", color: "#15803D", data: [48, 50, 49, 52, 53, 54] },
+      { name: "Desaprova", color: "#B91C1C", data: [44, 43, 44, 41, 40, 39] },
+      { name: "Não sabe / Regular", color: "#6B7280", data: [8, 7, 7, 7, 7, 7] }
     ],
     stats: [
-      { label: "Aprovação Atual", value: "54%", color: "#10B981" },
-      { label: "Desaprovação", value: "39%", color: "#EF4444" },
-      { label: "Saldo Líquido", value: "+15 pts", color: "#F59E0B" }
+      { label: "Aprovação", value: "54%", color: "#15803D" },
+      { label: "Desaprovação", value: "39%", color: "#B91C1C" },
+      { label: "Saldo Líquido", value: "+15 pts", color: "#D97706" }
     ]
   },
   inflacao: {
-    title: "Expectativa de Inflação dos Brasileiros (PoderData)",
-    subtitle: "Pergunta: Nos próximos 6 meses, os preços dos alimentos e serviços vão subir, cair ou ficar iguais?",
+    title: "Expectativa de Preços e Inflação (PoderData)",
+    subtitle: "Pergunta: Nos próximos 6 meses, os preços dos alimentos e serviços vão subir, cair ou ficar estáveis?",
     labels: ["Mai/26", "Jun/26", "Jul/26", "Ago/26", "Set/26", "Out/26"],
     datasets: [
-      { name: "Vão subir", color: "#EF4444", data: [58, 55, 52, 49, 46, 44] },
-      { name: "Ficar iguais", color: "#3B82F6", data: [26, 28, 30, 32, 35, 37] },
-      { name: "Vão cair", color: "#10B981", data: [16, 17, 18, 19, 19, 19] }
+      { name: "Vão subir", color: "#B91C1C", data: [58, 55, 52, 49, 46, 44] },
+      { name: "Ficar iguais", color: "#2563EB", data: [26, 28, 30, 32, 35, 37] },
+      { name: "Vão cair", color: "#15803D", data: [16, 17, 18, 19, 19, 19] }
     ],
     stats: [
-      { label: "Preveem alta", value: "44%", color: "#EF4444" },
-      { label: "Preveem estabilidade", value: "37%", color: "#3B82F6" },
-      { label: "Otimismo", value: "56%", color: "#10B981" }
+      { label: "Preveem alta", value: "44%", color: "#B91C1C" },
+      { label: "Estabilidade", value: "37%", color: "#2563EB" },
+      { label: "Otimismo", value: "56%", color: "#15803D" }
     ]
   },
   congresso: {
     title: "Avaliação do Congresso Nacional (Câmara e Senado)",
-    subtitle: "Pergunta: Como você avalia a atuação dos deputados e senadores?",
+    subtitle: "Pergunta: Como você avalia a atuação dos deputados federais e senadores?",
     labels: ["Mai/26", "Jun/26", "Jul/26", "Ago/26", "Set/26", "Out/26"],
     datasets: [
-      { name: "Ótimo / Bom", color: "#10B981", data: [18, 20, 21, 23, 24, 26] },
-      { name: "Regular", color: "#F59E0B", data: [42, 41, 43, 44, 45, 46] },
-      { name: "Ruim / Péssimo", color: "#EF4444", data: [40, 39, 36, 33, 31, 28] }
+      { name: "Ótimo / Bom", color: "#15803D", data: [18, 20, 21, 23, 24, 26] },
+      { name: "Regular", color: "#D97706", data: [42, 41, 43, 44, 45, 46] },
+      { name: "Ruim / Péssimo", color: "#B91C1C", data: [40, 39, 36, 33, 31, 28] }
     ],
     stats: [
-      { label: "Positivo", value: "26%", color: "#10B981" },
-      { label: "Regular", value: "46%", color: "#F59E0B" },
-      { label: "Negativo", value: "28%", color: "#EF4444" }
+      { label: "Positiva", value: "26%", color: "#15803D" },
+      { label: "Regular", value: "46%", color: "#D97706" },
+      { label: "Negativa", value: "28%", color: "#B91C1C" }
     ]
   }
 };
 
-// Playlist TV 360
+// Programação TV 360
 const TV_PLAYLIST = [
   {
-    title: "Debate 360: As perspectivas do teto de gastos e as pressões orçamentárias",
-    author: "Diário News Brasília",
-    duration: "18:40",
+    title: "Debate Brasília: O impasse do teto orçamentário e a pauta da sucessão parlamentar",
+    author: "Bancada Diário 360",
     thumb: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=300&q=80"
   },
   {
-    title: "Entrevista Exclusiva com o Relator da Reforma Administrativa na Câmara",
-    author: "Poder em Foco",
-    duration: "32:15",
+    title: "Entrevista Exclusiva: Secretário de Reformas Econômicas explica nova alíquota do IVA",
+    author: "Direto da Esplanada",
     thumb: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=300&q=80"
   },
   {
-    title: "Giro dos Mercados: Dólar, Commodities e a movimentação dos bancos centrais",
-    author: "Economia ao Minuto",
-    duration: "12:05",
+    title: "Giro B3: Como a ata do Copom e os dados dos EUA mexem com a curva de juros",
+    author: "Mercados ao Vivo",
     thumb: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=300&q=80"
   }
 ];
 
-class PortalApp {
+class NewspaperApp {
   constructor() {
     this.articles = this.loadArticles();
     this.wireItems = [...INITIAL_WIRE];
     this.currentChartKey = 'aprovacao';
-    this.currentChartType = 'line'; // 'line', 'donut', 'bar'
     this.isPlayingAudio = false;
     this.audioProgress = 0;
     this.audioInterval = null;
     this.activeCategory = 'todos';
     this.activeWireFilter = 'todos';
-    this.fontSizeRem = 1.15;
-    this.isPipClosedManually = false;
-    
+    this.fontSizeRem = 1.18;
+    this.isPipClosed = false;
+
     this.init();
   }
 
   loadArticles() {
-    const saved = localStorage.getItem('diario360_articles');
+    const saved = localStorage.getItem('diario360_real_articles');
     if (saved) {
       try {
         return JSON.parse(saved);
       } catch (e) {
-        console.error("Erro ao ler localStorage", e);
+        console.error(e);
       }
     }
     return INITIAL_ARTICLES;
   }
 
   saveArticles() {
-    localStorage.setItem('diario360_articles', JSON.stringify(this.articles));
+    localStorage.setItem('diario360_real_articles', JSON.stringify(this.articles));
   }
 
   init() {
-    this.setupDateDisplay();
-    this.renderHeroGrid();
-    this.renderWireStream();
-    this.renderPoderDataChart(this.currentChartKey, this.currentChartType);
+    this.renderFrontPage();
+    this.renderWire();
+    this.renderPoderDataChart(this.currentChartKey);
     this.renderColumnists();
-    this.renderCategorySections();
-    this.renderTvPlaylist();
+    this.renderPlaylist();
     this.setupEventListeners();
-    this.setupScrollAndReadingProgress();
-    this.startMarketFluctuation();
-    this.startWireSimulation();
-  }
-
-  setupDateDisplay() {
-    const el = document.getElementById('currentDate');
-    if (el) {
-      const now = new Date();
-      const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-      el.textContent = "• " + now.toLocaleDateString('pt-BR', options);
-    }
-  }
-
-  // ==========================================
-  // BARRA DE PROGRESSO & SCROLL
-  // ==========================================
-  setupScrollAndReadingProgress() {
-    const progressBar = document.getElementById('readingProgressBar');
-    const pipBox = document.getElementById('pipPlayerBox');
-    const multimediaSec = document.getElementById('multimediaSection');
-
-    window.addEventListener('scroll', () => {
-      // 1. Reading Progress
-      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      if (docHeight > 0) {
-        const scrolled = (window.scrollY / docHeight) * 100;
-        if (progressBar) progressBar.style.width = Math.min(100, Math.max(0, scrolled)) + '%';
-      }
-
-      // 2. Picture-in-Picture trigger ao rolar além do vídeo
-      if (pipBox && multimediaSec && !this.isPipClosedManually) {
-        const rect = multimediaSec.getBoundingClientRect();
-        // Se a seção multimídia já passou para cima da tela
-        if (rect.bottom < 0) {
-          pipBox.classList.add('active');
-        } else {
-          pipBox.classList.remove('active');
-        }
-      }
-    });
-  }
-
-  closePip() {
-    const pipBox = document.getElementById('pipPlayerBox');
-    if (pipBox) pipBox.classList.remove('active');
-    this.isPipClosedManually = true;
-  }
-
-  // ==========================================
-  // FERRAMENTAS DE ACESSIBILIDADE DE TEXTO (A- / A+)
-  // ==========================================
-  adjustFontSize(delta) {
-    this.fontSizeRem = Math.max(0.95, Math.min(1.55, this.fontSizeRem + (delta * 0.1)));
-    document.documentElement.style.setProperty('--art-body-size', `${this.fontSizeRem}rem`);
-    this.showToast(`Tamanho de texto: ${Math.round((this.fontSizeRem / 1.15) * 100)}%`);
-  }
-
-  resetFontSize() {
-    this.fontSizeRem = 1.15;
-    document.documentElement.style.setProperty('--art-body-size', '1.15rem');
-    this.showToast("Tamanho de texto restaurado ao padrão");
+    this.setupReadingProgress();
+    this.startMarketSimulation();
   }
 
   // ==========================================
   // RENDERIZAÇÃO DA CAPA EDITORIAL
   // ==========================================
-  renderHeroGrid() {
+  renderFrontPage() {
     const leadContainer = document.getElementById('leadStoryContainer');
-    const secContainer = document.getElementById('secondaryHighlights');
-    if (!leadContainer || !secContainer) return;
+    const subContainer = document.getElementById('leadSubgridContainer');
+    if (!leadContainer || !subContainer) return;
 
     let filtered = this.articles;
     if (this.activeCategory !== 'todos') {
@@ -359,66 +287,60 @@ class PortalApp {
     }
 
     const lead = filtered[0] || this.articles[0];
-    const secondaries = filtered.slice(1, 4);
+    const subs = filtered.slice(1, 3);
 
-    // Super Manchete com Selos Editoriais
+    // 1. Super Manchete
     leadContainer.innerHTML = `
-      <div class="lead-media">
-        <img src="${lead.image}" alt="${lead.title}">
-        <div class="lead-badges-container">
-          <span class="editorial-scope-badge ${lead.scopeClass || 'badge-exclusive'}">${lead.scope || 'EXCLUSIVO'}</span>
-          <span class="lead-category-badge">${lead.categoryLabel}</span>
-        </div>
+      <div class="lead-chapeu-row">
+        <span class="chapeu-tag">${lead.chapeu || 'BASTIDORES'}</span>
+        <span class="chapeu-time">Publicado às ${lead.date.split('às')[1] || '15h10'}</span>
       </div>
-      <div class="lead-content">
-        <h2 class="lead-headline" onclick="app.openArticle(${lead.id})">${lead.title}</h2>
-        <p class="lead-subheadline">${lead.subtitle}</p>
-        
-        <!-- Poder360 Bullets -->
-        <div class="lead-bullets-box">
-          <div class="lead-bullets-title"><i class="fa-solid fa-list-check"></i> O QUE VOCÊ PRECISA SABER:</div>
-          <ul class="lead-bullets-list">
-            ${lead.bullets.map(b => `<li>${b}</li>`).join('')}
-          </ul>
-        </div>
+      <h2 class="lead-title-link" onclick="app.openArticle(${lead.id})">${lead.title}</h2>
+      <p class="lead-deck">${lead.subtitle}</p>
 
-        <div class="lead-meta">
-          <span><i class="fa-regular fa-user"></i> ${lead.author}</span>
-          <span><i class="fa-regular fa-clock"></i> ${lead.date} • ${lead.readTime}</span>
-        </div>
+      <div class="lead-photo-frame">
+        <img src="${lead.image}" alt="${lead.title}">
+        <div class="lead-photo-credit">${lead.caption}</div>
+      </div>
+
+      <!-- Resumo Estilo Poder360 Marca-Texto -->
+      <div class="lead-takeaways-highlight">
+        <div class="takeaways-label"><i class="fa-solid fa-bookmark"></i> O QUE VOCÊ PRECISA SABER:</div>
+        <ul class="takeaways-points">
+          ${lead.bullets.map(b => `<li>${b}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="lead-byline-meta">
+        <strong>Reportagem de ${lead.author}</strong> • ${lead.authorRole}
       </div>
     `;
 
-    // Atualiza Breaking News Bar
+    // 2. Notícias Complementares (Fio de chumbo duplo)
+    subContainer.innerHTML = subs.map(sub => `
+      <article class="subgrid-article" onclick="app.openArticle(${sub.id})">
+        <div class="subgrid-photo">
+          <img src="${sub.image}" alt="${sub.title}">
+        </div>
+        <span class="subgrid-chapeu">${sub.chapeu || sub.categoryLabel}</span>
+        <h3 class="subgrid-title">${sub.title}</h3>
+        <p class="subgrid-summary">${sub.subtitle}</p>
+        <span class="subgrid-meta">Por ${sub.author} • ${sub.readTime}</span>
+      </article>
+    `).join('');
+
+    // Atualiza Plantão de Última Hora
     const breakingTitle = document.getElementById('breakingTitle');
     if (breakingTitle) {
       breakingTitle.textContent = lead.title;
       breakingTitle.onclick = () => this.openArticle(lead.id);
     }
-
-    // Destaques Secundários com Selos
-    secContainer.innerHTML = secondaries.map(sec => `
-      <div class="secondary-card" onclick="app.openArticle(${sec.id})">
-        <div class="sec-media">
-          <img src="${sec.image}" alt="${sec.title}">
-        </div>
-        <div class="sec-badges-row">
-          <span class="editorial-scope-badge ${sec.scopeClass || 'badge-bastidores'}">${sec.scope || 'BASTIDORES'}</span>
-          <span class="sec-category">${sec.categoryLabel}</span>
-        </div>
-        <h3 class="sec-title">${sec.title}</h3>
-        <p class="sec-summary">${sec.subtitle}</p>
-        <div class="sec-meta">
-          <span>${sec.author} • ${sec.date}</span>
-        </div>
-      </div>
-    `).join('');
   }
 
   // ==========================================
-  // MINUTO A MINUTO (FEED COM FILTROS)
+  // RADAR DO PODER (TEMPO REAL)
   // ==========================================
-  renderWireStream() {
+  renderWire() {
     const container = document.getElementById('wireStreamContainer');
     if (!container) return;
 
@@ -428,102 +350,49 @@ class PortalApp {
     }
 
     container.innerHTML = items.map(item => `
-      <div class="wire-item" onclick="app.showToast('Nota de tempo real: ' + '${item.title.replace(/'/g, "\\'")}')">
-        <div class="wire-time">${item.time} • ${item.cat}</div>
-        <div class="wire-item-title">${item.title}</div>
+      <div class="feed-wire-item" onclick="app.showToast('Despacho de agência: ' + '${item.title.replace(/'/g, "\\'")}')">
+        <div class="wire-time-tag">${item.time} — ${item.cat.toUpperCase()}</div>
+        <div class="wire-headline">${item.title}</div>
       </div>
     `).join('');
   }
 
   filterWire(category) {
     this.activeWireFilter = category;
-    document.querySelectorAll('.wire-filter-btn').forEach(btn => {
+    document.querySelectorAll('.filter-chip').forEach(btn => {
       btn.classList.toggle('active', btn.textContent.toLowerCase().includes(category.toLowerCase()));
     });
-    this.renderWireStream();
-  }
-
-  // Simulação de nova notícia chegando no Wire a cada 25 segundos
-  startWireSimulation() {
-    const extraNews = [
-      { title: "Planalto confirma indicação para vaga no Tribunal de Contas da União", cat: "Congresso" },
-      { title: "Dólar atinge mínima do dia após anúncio de fluxo cambial positivo pelo BC", cat: "Economia" },
-      { title: "Comissão de Ética conclui relatório sobre atuação de servidores em agência", cat: "Judiciário" },
-      { title: "Lira e Pacheco se reúnem com ministros do STF em almoço institucional", cat: "Congresso" }
-    ];
-
-    let idx = 0;
-    setInterval(() => {
-      const now = new Date();
-      const timeStr = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
-      const item = extraNews[idx % extraNews.length];
-      idx++;
-
-      this.wireItems.unshift({ time: timeStr, title: item.title, cat: item.cat });
-      this.renderWireStream();
-
-      // Destaque visual suave no primeiro item
-      const firstEl = document.querySelector('.wire-item');
-      if (firstEl) firstEl.classList.add('new-wire-flash');
-
-      this.showToast(`🚨 Minuto a Minuto: ${item.title.slice(0, 50)}...`, 'gold');
-    }, 25000);
+    this.renderWire();
   }
 
   // ==========================================
-  // PODERDATA COM TIPOS (LINHAS, DONUT, BARRAS) & EXPORTAÇÃO
+  // GRÁFICO PODERDATA (ESTILO JORNAL LIMPO)
   // ==========================================
-  setChartType(type) {
-    this.currentChartType = type;
-    document.querySelectorAll('.chart-type-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('onclick').includes(type));
-    });
-    this.renderPoderDataChart(this.currentChartKey, type);
-    this.showToast(`Modo do gráfico alterado para: ${type.toUpperCase()}`);
-  }
-
   switchChart(key) {
     this.currentChartKey = key;
-    this.renderPoderDataChart(key, this.currentChartType);
-    this.showToast(`Dados atualizados: ${PODERDATA_SETS[key].title}`, 'gold');
+    document.querySelectorAll('.pd-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('onclick').includes(key));
+    });
+    this.renderPoderDataChart(key);
+    this.showToast(`Pesquisa atualizada: ${PODERDATA_SETS[key].title}`);
   }
 
-  renderPoderDataChart(datasetKey, chartType = 'line') {
+  renderPoderDataChart(datasetKey) {
     const dataObj = PODERDATA_SETS[datasetKey];
     if (!dataObj) return;
 
     document.getElementById('chartTitle').textContent = dataObj.title;
+    document.getElementById('chartSubtitle').textContent = dataObj.subtitle;
 
-    document.querySelectorAll('.chart-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('onclick').includes(datasetKey));
-    });
-
-    // Stats pills
+    // Stats
     const statsContainer = document.getElementById('chartStatsSummary');
     if (statsContainer) {
       statsContainer.innerHTML = dataObj.stats.map(s => `
-        <div class="stat-pill">
-          <div class="stat-number" style="color: ${s.color}">${s.value}</div>
-          <div class="stat-label">${s.label}</div>
+        <div class="pd-stat-box">
+          <div class="pd-stat-num" style="color: ${s.color}">${s.value}</div>
+          <div class="pd-stat-lbl">${s.label}</div>
         </div>
       `).join('');
-    }
-
-    // Notícias vinculadas a dados
-    const dataNewsCol = document.getElementById('dataNewsColumn');
-    if (dataNewsCol) {
-      dataNewsCol.innerHTML = `
-        <div class="data-news-item" onclick="app.openArticle(1)">
-          <span class="data-metric-tag"><i class="fa-solid fa-arrow-trend-up"></i> TENDÊNCIA DE MERCADO</span>
-          <h4>Índice de estabilidade política atinge melhor patamar do semestre após avanço fiscal</h4>
-          <p>Métrica apurada pelo núcleo analítico indica redução na percepção de risco para investimentos externos.</p>
-        </div>
-        <div class="data-news-item" onclick="app.openArticle(2)">
-          <span class="data-metric-tag"><i class="fa-solid fa-calculator"></i> MACROECONOMIA</span>
-          <h4>Projeções do Focus convergem com estimativas de inflação ancorada para os próximos 12 meses</h4>
-          <p>Mercado financeiro eleva projeção de crescimento do PIB para 2,65% com safra robusta e consumo firme.</p>
-        </div>
-      `;
     }
 
     const canvas = document.getElementById('dataChart');
@@ -534,24 +403,14 @@ class PortalApp {
 
     ctx.clearRect(0, 0, width, height);
 
-    if (chartType === 'line') {
-      this.drawChartLine(ctx, width, height, dataObj);
-    } else if (chartType === 'donut') {
-      this.drawChartDonut(ctx, width, height, dataObj);
-    } else if (chartType === 'bar') {
-      this.drawChartBar(ctx, width, height, dataObj);
-    }
-  }
-
-  // 1. Gráfico de Linhas
-  drawChartLine(ctx, width, height, dataObj) {
-    const padding = { top: 20, right: 30, bottom: 40, left: 45 };
+    const padding = { top: 25, right: 25, bottom: 35, left: 40 };
     const chartW = width - padding.left - padding.right;
     const chartH = height - padding.top - padding.bottom;
 
-    // Linhas de grade
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
+    // Linhas de Grade de Jornal
+    ctx.strokeStyle = "#E5E7EB";
     ctx.lineWidth = 1;
+
     for (let i = 0; i <= 4; i++) {
       const y = padding.top + (chartH / 4) * i;
       ctx.beginPath();
@@ -559,19 +418,19 @@ class PortalApp {
       ctx.lineTo(width - padding.right, y);
       ctx.stroke();
 
-      ctx.fillStyle = "#64748B";
+      ctx.fillStyle = "#6B7280";
       ctx.font = "10px Inter, sans-serif";
       ctx.textAlign = "right";
       const val = Math.round(80 - (80 / 4) * i);
-      ctx.fillText(val + "%", padding.left - 8, y + 3);
+      ctx.fillText(val + "%", padding.left - 6, y + 3);
     }
 
     const stepX = chartW / (dataObj.labels.length - 1);
 
-    // Linhas de dados
+    // Linhas de Dados
     dataObj.datasets.forEach(ds => {
       ctx.strokeStyle = ds.color;
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 2.8;
       ctx.beginPath();
 
       ds.data.forEach((val, idx) => {
@@ -582,206 +441,94 @@ class PortalApp {
       });
       ctx.stroke();
 
-      // Pontos e valores
+      // Pontos
       ds.data.forEach((val, idx) => {
         const x = padding.left + idx * stepX;
         const y = padding.top + chartH - (val / 80) * chartH;
 
         ctx.fillStyle = ds.color;
         ctx.beginPath();
-        ctx.arc(x, y, 4.5, 0, Math.PI * 2);
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = "#F8FAFC";
+        ctx.fillStyle = "#111827";
         ctx.font = "bold 11px Inter, sans-serif";
         ctx.textAlign = "center";
-        ctx.fillText(val + "%", x, y - 8);
+        ctx.fillText(val + "%", x, y - 7);
       });
     });
 
-    // Rótulos do eixo X (meses)
-    ctx.fillStyle = "#94A3B8";
+    // Rótulos do Eixo X
+    ctx.fillStyle = "#4B5563";
     ctx.font = "11px Inter, sans-serif";
     ctx.textAlign = "center";
     dataObj.labels.forEach((lbl, idx) => {
       const x = padding.left + idx * stepX;
-      ctx.fillText(lbl, x, height - padding.bottom + 22);
+      ctx.fillText(lbl, x, height - padding.bottom + 18);
     });
   }
 
-  // 2. Gráfico Donut (Circular)
-  drawChartDonut(ctx, width, height, dataObj) {
-    const centerX = width * 0.38;
-    const centerY = height * 0.5;
-    const outerRadius = 88;
-    const innerRadius = 52;
-
-    // Pega o último mês de dados
-    const lastIdx = dataObj.labels.length - 1;
-    const total = dataObj.datasets.reduce((sum, ds) => sum + ds.data[lastIdx], 0);
-
-    let startAngle = -Math.PI / 2;
-
-    dataObj.datasets.forEach(ds => {
-      const val = ds.data[lastIdx];
-      const sliceAngle = (val / total) * Math.PI * 2;
-
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, outerRadius, startAngle, startAngle + sliceAngle);
-      ctx.arc(centerX, centerY, innerRadius, startAngle + sliceAngle, startAngle, true);
-      ctx.closePath();
-      ctx.fillStyle = ds.color;
-      ctx.fill();
-
-      startAngle += sliceAngle;
-    });
-
-    // Centro do Donut
-    ctx.fillStyle = "#F8FAFC";
-    ctx.font = "bold 18px Outfit, sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText("OUT/26", centerX, centerY - 2);
-
-    ctx.fillStyle = "#94A3B8";
-    ctx.font = "10px Inter, sans-serif";
-    ctx.fillText("Mais recente", centerX, centerY + 14);
-
-    // Legenda no lado direito
-    const legendX = width * 0.68;
-    let legendY = 70;
-
-    dataObj.datasets.forEach(ds => {
-      const val = ds.data[lastIdx];
-
-      ctx.fillStyle = ds.color;
-      ctx.fillRect(legendX, legendY, 12, 12);
-
-      ctx.fillStyle = "#F8FAFC";
-      ctx.font = "bold 13px Inter, sans-serif";
-      ctx.textAlign = "left";
-      ctx.fillText(`${val}% - ${ds.name}`, legendX + 20, legendY + 11);
-
-      legendY += 34;
-    });
-  }
-
-  // 3. Gráfico de Barras
-  drawChartBar(ctx, width, height, dataObj) {
-    const padding = { top: 25, right: 30, bottom: 40, left: 45 };
-    const chartW = width - padding.left - padding.right;
-    const chartH = height - padding.top - padding.bottom;
-
-    const groupW = chartW / dataObj.labels.length;
-    const barW = (groupW - 14) / dataObj.datasets.length;
-
-    // Linhas de grade
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
-    ctx.lineWidth = 1;
-    for (let i = 0; i <= 4; i++) {
-      const y = padding.top + (chartH / 4) * i;
-      ctx.beginPath();
-      ctx.moveTo(padding.left, y);
-      ctx.lineTo(width - padding.right, y);
-      ctx.stroke();
-
-      ctx.fillStyle = "#64748B";
-      ctx.font = "10px Inter, sans-serif";
-      ctx.textAlign = "right";
-      const val = Math.round(80 - (80 / 4) * i);
-      ctx.fillText(val + "%", padding.left - 8, y + 3);
-    }
-
-    // Desenha Barras
-    dataObj.labels.forEach((lbl, groupIdx) => {
-      const groupX = padding.left + groupIdx * groupW + 7;
-
-      dataObj.datasets.forEach((ds, dsIdx) => {
-        const val = ds.data[groupIdx];
-        const barH = (val / 80) * chartH;
-        const x = groupX + dsIdx * barW;
-        const y = padding.top + chartH - barH;
-
-        ctx.fillStyle = ds.color;
-        ctx.fillRect(x, y, barW - 2, barH);
-      });
-
-      // Rótulo do Mês
-      ctx.fillStyle = "#94A3B8";
-      ctx.font = "11px Inter, sans-serif";
-      ctx.textAlign = "center";
-      ctx.fillText(lbl, groupX + (groupW - 14) / 2, height - padding.bottom + 20);
-    });
-  }
-
-  // EXPORTAR GRÁFICO (BAIXAR IMAGEM PNG COM MARCA D'ÁGUA PODER360)
   exportChartImage() {
-    const sourceCanvas = document.getElementById('dataChart');
-    if (!sourceCanvas) return;
+    const srcCanvas = document.getElementById('dataChart');
+    if (!srcCanvas) return;
 
-    // Cria canvas de alta resolução com cabeçalho de imprensa
-    const exportCanvas = document.createElement('canvas');
-    exportCanvas.width = 800;
-    exportCanvas.height = 460;
-    const expCtx = exportCanvas.getContext('2d');
+    const expCanvas = document.createElement('canvas');
+    expCanvas.width = 800;
+    expCanvas.height = 440;
+    const expCtx = expCanvas.getContext('2d');
 
-    // Fundo escuro oficial
-    expCtx.fillStyle = "#0A0E17";
-    expCtx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
-
-    // Cabeçalho institucional
-    expCtx.fillStyle = "#F59E0B";
-    expCtx.font = "bold 13px Outfit, sans-serif";
-    expCtx.fillText("DIÁRIO 360 • PODERDATA EXCLUSIVO", 30, 36);
-
+    // Fundo limpo de jornal
     expCtx.fillStyle = "#FFFFFF";
-    expCtx.font = "bold 20px Outfit, sans-serif";
+    expCtx.fillRect(0, 0, expCanvas.width, expCanvas.height);
+
+    // Cabeçalho Oficial
+    expCtx.fillStyle = "#CC0000";
+    expCtx.font = "bold 13px Inter, sans-serif";
+    expCtx.fillText("DIÁRIO 360 • DIVISÃO DE PESQUISAS PODERDATA", 30, 36);
+
+    expCtx.fillStyle = "#111827";
+    expCtx.font = "bold 20px Georgia, serif";
     expCtx.fillText(PODERDATA_SETS[this.currentChartKey].title, 30, 68);
 
-    // Borda separadora
-    expCtx.strokeStyle = "#232F46";
+    expCtx.strokeStyle = "#111827";
     expCtx.lineWidth = 1;
     expCtx.beginPath();
-    expCtx.moveTo(30, 84);
-    expCtx.lineTo(770, 84);
+    expCtx.moveTo(30, 82);
+    expCtx.lineTo(770, 82);
     expCtx.stroke();
 
-    // Copia o gráfico principal
-    expCtx.drawImage(sourceCanvas, 30, 100, 740, 300);
+    expCtx.drawImage(srcCanvas, 30, 96, 740, 280);
 
-    // Rodapé de Metodologia e Direitos
-    expCtx.fillStyle = "#64748B";
+    expCtx.fillStyle = "#6B7280";
     expCtx.font = "11px Inter, sans-serif";
-    expCtx.fillText("Fonte: Levantamento Diário 360 / Metodologia Aberta • Margem de erro: ± 2 p.p.", 30, 435);
+    expCtx.fillText("Fonte: Pesquisa PoderData / Metodologia Aberta e Auditada • Registro TSE/Nacional", 30, 415);
 
-    // Dispara o download
     const link = document.createElement('a');
-    link.download = `diario360_pesquisa_${this.currentChartKey}.png`;
-    link.href = exportCanvas.toDataURL('image/png');
+    link.download = `poderdata_grafico_${this.currentChartKey}.png`;
+    link.href = expCanvas.toDataURL('image/png');
     link.click();
 
-    this.showToast("✓ Imagem do gráfico baixada em alta resolução!", "success");
+    this.showToast("✓ Gráfico de pesquisa exportado com sucesso!");
   }
 
   // ==========================================
-  // COLUNISTAS
+  // COLUNISTAS DE VERDADE
   // ==========================================
   renderColumnists() {
     const container = document.getElementById('columnistsContainer');
     if (!container) return;
 
     container.innerHTML = COLUMNISTS.map(col => `
-      <div class="columnist-card" onclick="app.showToast('Lendo coluna de: ' + '${col.name}')">
-        <div class="col-header">
-          <img src="${col.avatar}" alt="${col.name}" class="col-avatar">
-          <div>
-            <div class="col-name">${col.name}</div>
-            <div class="col-role">${col.role}</div>
+      <div class="col-card-real" onclick="app.showToast('Coluna de: ' + '${col.name}')">
+        <div class="col-author-strip">
+          <img src="${col.avatar}" alt="${col.name}" class="col-headshot">
+          <div class="col-author-meta">
+            <strong>${col.name}</strong>
+            <span>${col.role}</span>
           </div>
         </div>
-        <p class="col-article-title">"${col.title}"</p>
-        <div class="col-footer">
-          <span><i class="fa-regular fa-clock"></i> ${col.date}</span>
-        </div>
+        <h4 class="col-headline">"${col.title}"</h4>
+        <p class="col-lead-snippet">${col.snippet}</p>
       </div>
     `).join('');
   }
@@ -789,157 +536,120 @@ class PortalApp {
   // ==========================================
   // PLAYLIST TV 360
   // ==========================================
-  renderTvPlaylist() {
+  renderPlaylist() {
     const container = document.getElementById('playlistContainer');
     if (!container) return;
 
     container.innerHTML = TV_PLAYLIST.map(item => `
-      <div class="playlist-card" onclick="app.openLiveModal()">
-        <div class="pl-thumb">
-          <img src="${item.thumb}" alt="${item.title}">
-          <span class="pl-duration">${item.duration}</span>
-        </div>
-        <div class="pl-info">
+      <div class="playlist-item-card" onclick="app.openLiveModal()">
+        <img src="${item.thumb}" alt="${item.title}" class="playlist-thumb">
+        <div class="playlist-info">
           <h5>${item.title}</h5>
-          <span class="pl-author">${item.author}</span>
+          <span>${item.author}</span>
         </div>
       </div>
     `).join('');
   }
 
   // ==========================================
-  // BLOCOS CATEGORIZADOS
-  // ==========================================
-  renderCategorySections() {
-    const polEl = document.getElementById('politicaNewsList');
-    const ecoEl = document.getElementById('economiaNewsList');
-    const judEl = document.getElementById('judiciarioNewsList');
-
-    if (polEl) {
-      polEl.innerHTML = `
-        <div class="column-news-item" onclick="app.openArticle(1)">
-          <h4>Acordo em Brasília destrava matérias econômicas prioritárias antes do recesso</h4>
-          <p>Lideranças garantem quórum de 315 deputados para o marco fiscal.</p>
-          <span class="item-meta">Há 25 minutos • Redação Planalto</span>
-        </div>
-        <div class="column-news-item" onclick="app.showToast('Em atualização')">
-          <h4>Comissão de Relações Exteriores debate entrada de novos parceiros comerciais</h4>
-          <p>Diplomatas apresentam relatório sobre investimentos em cadeias de suprimento.</p>
-          <span class="item-meta">Há 1 hora • Esplanada</span>
-        </div>
-      `;
-    }
-
-    if (ecoEl) {
-      ecoEl.innerHTML = `
-        <div class="column-news-item" onclick="app.openArticle(2)">
-          <h4>Ata do Copom reitera prudência e monitora juros globais</h4>
-          <p>Inflação de serviços arrefece, mas pleno emprego requer vigilância.</p>
-          <span class="item-meta">Há 45 minutos • Mercados</span>
-        </div>
-        <div class="column-news-item" onclick="app.showToast('Em atualização')">
-          <h4>Balança comercial registra superávit recorde impulsionado pelo setor agropecuário</h4>
-          <p>Exportações de soja, milho e carnes alcançam US$ 8,4 bilhões no mês.</p>
-          <span class="item-meta">Há 2 horas • Comércio Exterior</span>
-        </div>
-      `;
-    }
-
-    if (judEl) {
-      judEl.innerHTML = `
-        <div class="column-news-item" onclick="app.openArticle(3)">
-          <h4>STF forma maioria sobre responsabilidade de redes em crimes digitais</h4>
-          <p>Julgamento histórico estabelece normas para algoritmos e publicidade.</p>
-          <span class="item-meta">Há 1 hora • Tribunais</span>
-        </div>
-        <div class="column-news-item" onclick="app.showToast('Em atualização')">
-          <h4>Conselho Nacional de Justiça aprova resolução para acelerar execuções fiscais</h4>
-          <p>Medida busca desengargalar varas de fazenda pública com integração digital.</p>
-          <span class="item-meta">Há 3 horas • CNJ</span>
-        </div>
-      `;
-    }
-  }
-
-  // ==========================================
-  // NAVEGAÇÃO ENTRE PÁGINA INICIAL E MATÉRIA
+  // NAVEGAÇÃO & LEITOR DE ARTIGO
   // ==========================================
   openArticle(id) {
-    const article = this.articles.find(a => a.id === id) || this.articles[0];
-    
-    // Preenche os dados
-    document.getElementById('artBreadcrumbCat').textContent = article.categoryLabel;
-    document.getElementById('artCatBadge').textContent = article.categoryLabel;
-    
-    // Selo de escopo
-    const scopeBadge = document.getElementById('artScopeBadge');
-    if (scopeBadge) {
-      scopeBadge.textContent = article.scope || 'EXCLUSIVO';
-      scopeBadge.className = `editorial-scope-badge ${article.scopeClass || 'badge-exclusive'}`;
-    }
+    const art = this.articles.find(a => a.id === id) || this.articles[0];
 
-    document.getElementById('artReadTime').innerHTML = `<i class="fa-regular fa-clock"></i> ${article.readTime}`;
-    document.getElementById('artHeadline').textContent = article.title;
-    document.getElementById('artSubheadline').textContent = article.subtitle;
-    document.getElementById('artAuthorAvatar').src = article.authorAvatar;
-    document.getElementById('artAuthorName').textContent = `Por ${article.author} • ${article.authorRole}`;
-    document.getElementById('artPubDate').textContent = article.date;
-    document.getElementById('artImage').src = article.image;
-    document.getElementById('artImageCaption').textContent = article.caption || "Foto: Diário 360 / Divulgação";
-    document.getElementById('artBody').innerHTML = article.content;
+    document.getElementById('artBreadcrumbCat').textContent = art.categoryLabel;
+    document.getElementById('artScopeBadge').textContent = art.chapeu || 'BASTIDORES DO PODER';
+    document.getElementById('artHeadline').textContent = art.title;
+    document.getElementById('artSubheadline').textContent = art.subtitle;
+    document.getElementById('artAuthorAvatar').src = art.authorAvatar;
+    document.getElementById('artAuthorName').textContent = `Por ${art.author}, ${art.authorRole}`;
+    document.getElementById('artPubDate').textContent = `${art.date} • ${art.readTime}`;
+    document.getElementById('artImage').src = art.image;
+    document.getElementById('artImageCaption').textContent = art.caption;
+    document.getElementById('artBody').innerHTML = art.content;
 
-    // Resumo Executivo estilo Poder360
+    // Resumo Poder360 Marca-Texto
     const bulletsEl = document.getElementById('artSummaryBullets');
-    if (bulletsEl && article.bullets) {
-      bulletsEl.innerHTML = article.bullets.map(b => `<li>${b}</li>`).join('');
+    if (bulletsEl) {
+      bulletsEl.innerHTML = art.bullets.map(b => `<li>${b}</li>`).join('');
     }
 
-    // Tags
-    const tagsEl = document.getElementById('artTags');
-    if (tagsEl && article.tags) {
-      tagsEl.innerHTML = article.tags.map(t => `<span class="tag-pill" onclick="app.searchNews('${t}')">#${t}</span>`).join('');
-    }
-
-    // Notícias relacionadas
+    // Relacionadas
     const relatedEl = document.getElementById('relatedNewsGrid');
     if (relatedEl) {
-      const others = this.articles.filter(a => a.id !== article.id).slice(0, 3);
+      const others = this.articles.filter(a => a.id !== art.id).slice(0, 3);
       relatedEl.innerHTML = others.map(o => `
-        <div class="related-card" onclick="app.openArticle(${o.id})">
+        <div class="related-story-card" onclick="app.openArticle(${o.id})">
           <img src="${o.image}" alt="${o.title}">
           <h5>${o.title}</h5>
         </div>
       `).join('');
     }
 
-    // Alterna view
     document.getElementById('homeView').classList.remove('active');
     document.getElementById('articleView').classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    this.resetAudioPlayer();
+    this.resetAudio();
   }
 
   backToHome() {
     document.getElementById('articleView').classList.remove('active');
     document.getElementById('homeView').classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    this.resetAudioPlayer();
+    this.resetAudio();
   }
 
   filterCategory(cat) {
     this.activeCategory = cat;
-    document.querySelectorAll('.nav-list li').forEach(li => {
+    document.querySelectorAll('.nav-links li').forEach(li => {
       li.classList.toggle('active', li.getAttribute('data-cat') === cat);
     });
-
     this.backToHome();
-    this.renderHeroGrid();
-    this.showToast(`Filtrando editoria: ${cat.toUpperCase()}`);
+    this.renderFrontPage();
+    this.showToast(`Editoria selecionada: ${cat.toUpperCase()}`);
   }
 
   // ==========================================
-  // ÁUDIO PLAYER SIMULATOR (TTS)
+  // FERRAMENTAS DE LEITURA
+  // ==========================================
+  setupReadingProgress() {
+    const progBar = document.getElementById('readingProgressBar');
+    const pipBox = document.getElementById('pipPlayerBox');
+    const multimediaSec = document.getElementById('multimediaSection');
+
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (docHeight > 0 && progBar) {
+        const scrolled = (window.scrollY / docHeight) * 100;
+        progBar.style.width = scrolled + '%';
+      }
+
+      if (pipBox && multimediaSec && !this.isPipClosed) {
+        const rect = multimediaSec.getBoundingClientRect();
+        if (rect.bottom < 0) pipBox.classList.add('active');
+        else pipBox.classList.remove('active');
+      }
+    });
+  }
+
+  adjustFontSize(delta) {
+    this.fontSizeRem = Math.max(1.0, Math.min(1.5, this.fontSizeRem + (delta * 0.1)));
+    document.documentElement.style.setProperty('--article-font-size', `${this.fontSizeRem}rem`);
+    this.showToast(`Tamanho da tipografia: ${Math.round((this.fontSizeRem / 1.18) * 100)}%`);
+  }
+
+  resetFontSize() {
+    this.fontSizeRem = 1.18;
+    document.documentElement.style.setProperty('--article-font-size', '1.18rem');
+  }
+
+  closePip() {
+    document.getElementById('pipPlayerBox').classList.remove('active');
+    this.isPipClosed = true;
+  }
+
+  // ==========================================
+  // ÁUDIO NARRADO (IA TTS)
   // ==========================================
   toggleAudioTTS() {
     const icon = document.getElementById('audioPlayIcon');
@@ -954,13 +664,12 @@ class PortalApp {
     } else {
       this.isPlayingAudio = true;
       icon.className = 'fa-solid fa-pause';
-      this.showToast("Reproduzindo narração com voz IA...");
+      this.showToast("Reproduzindo reportagem narrada...");
 
       this.audioInterval = setInterval(() => {
         this.audioProgress += 1;
         if (this.audioProgress > 100) {
-          this.resetAudioPlayer();
-          this.showToast("Fim da reprodução do áudio");
+          this.resetAudio();
           return;
         }
         fill.style.width = this.audioProgress + '%';
@@ -972,7 +681,7 @@ class PortalApp {
     }
   }
 
-  resetAudioPlayer() {
+  resetAudio() {
     clearInterval(this.audioInterval);
     this.isPlayingAudio = false;
     this.audioProgress = 0;
@@ -985,28 +694,28 @@ class PortalApp {
   }
 
   // ==========================================
-  // BUSCA E EVENT LISTENERS
+  // BUSCA E REDAÇÃO (CMS)
   // ==========================================
   setupEventListeners() {
-    // Theme Switcher
     const themeBtn = document.getElementById('themeToggleBtn');
     const themeIcon = document.getElementById('themeIcon');
     themeBtn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      const target = current === 'dark' ? 'light' : 'dark';
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const target = current === 'light' ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', target);
       themeIcon.className = target === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-      localStorage.setItem('diario360_theme', target);
-      this.showToast(`Modo ${target === 'dark' ? 'Escuro' : 'Claro'} ativado`);
+      themeBtn.querySelector('span').textContent = target === 'dark' ? 'Modo Diurno' : 'Modo Noturno';
+      localStorage.setItem('diario360_real_theme', target);
+      this.showToast(`Visual alterado para: Modo ${target === 'dark' ? 'Noturno' : 'Diurno'}`);
     });
 
-    const savedTheme = localStorage.getItem('diario360_theme');
-    if (savedTheme) {
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      themeIcon.className = savedTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    const saved = localStorage.getItem('diario360_real_theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+      themeIcon.className = saved === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      themeBtn.querySelector('span').textContent = saved === 'dark' ? 'Modo Diurno' : 'Modo Noturno';
     }
 
-    // Modal de Busca
     const searchTrigger = document.getElementById('searchTrigger');
     const searchModal = document.getElementById('searchModal');
     const closeSearch = document.getElementById('closeSearch');
@@ -1022,52 +731,25 @@ class PortalApp {
 
     closeSearch.addEventListener('click', () => searchModal.classList.remove('active'));
 
-    searchModal.addEventListener('click', (e) => {
-      if (e.target === searchModal) searchModal.classList.remove('active');
-    });
-
     searchInput.addEventListener('input', (e) => {
       const q = e.target.value.toLowerCase().trim();
       if (q.length < 2) {
         searchResults.innerHTML = '';
         return;
       }
-
-      const matches = this.articles.filter(a => 
-        a.title.toLowerCase().includes(q) || 
-        a.subtitle.toLowerCase().includes(q) ||
-        (a.tags && a.tags.some(t => t.toLowerCase().includes(q)))
-      );
-
-      if (matches.length === 0) {
-        searchResults.innerHTML = `<div style="padding: 18px; color: var(--text-muted); text-align: center;">Nenhuma notícia encontrada para "${q}".</div>`;
-        return;
-      }
-
+      const matches = this.articles.filter(a => a.title.toLowerCase().includes(q) || a.subtitle.toLowerCase().includes(q));
       searchResults.innerHTML = matches.map(m => `
         <div class="search-result-item" onclick="app.openArticle(${m.id}); document.getElementById('searchModal').classList.remove('active');">
-          <span style="font-size: 0.7rem; font-weight: 800; color: var(--brand-red);">${m.categoryLabel}</span>
-          <h4>${m.title}</h4>
+          <span style="font-size: 0.68rem; font-weight: 800; color: var(--brand-red);">${m.categoryLabel}</span>
+          <h4 style="font-family: var(--font-serif);">${m.title}</h4>
           <p>${m.subtitle}</p>
         </div>
       `).join('');
     });
 
-    // Botão de Redação (CMS)
     document.getElementById('openCmsBtn').addEventListener('click', () => this.openCms());
   }
 
-  searchNews(term) {
-    const searchModal = document.getElementById('searchModal');
-    const searchInput = document.getElementById('searchInput');
-    searchModal.classList.add('active');
-    searchInput.value = term;
-    searchInput.dispatchEvent(new Event('input'));
-  }
-
-  // ==========================================
-  // CMS / PAINEL DA REDAÇÃO
-  // ==========================================
   openCms() {
     document.getElementById('cmsModal').classList.add('active');
   }
@@ -1083,69 +765,57 @@ class PortalApp {
     const category = document.getElementById('cmsCategory').value;
     const scope = document.getElementById('cmsScope').value;
     const author = document.getElementById('cmsAuthor').value.trim();
-    const image = document.getElementById('cmsImage').value.trim() || "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=1200&q=80";
+    const image = document.getElementById('cmsImage').value.trim() || "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80";
     const bulletsRaw = document.getElementById('cmsBullets').value.trim();
     const contentRaw = document.getElementById('cmsContent').value.trim();
 
     const bullets = bulletsRaw ? bulletsRaw.split('\n').filter(b => b.trim()) : [
-      "Notícia apurada diretamente pela equipe do Diário 360.",
+      "Reportagem apurada pela redação do Diário 360 em Brasília.",
       "Desdobramentos sob acompanhamento em tempo real.",
-      "Impactos imediatos no setor e repercussão oficial."
+      "Repercussão direta nas lideranças partidárias e no mercado."
     ];
 
     const content = contentRaw 
       ? contentRaw.split('\n\n').map(p => `<p>${p}</p>`).join('')
-      : `<p>${subtitle}</p><p>A apuração completa segue em atualização permanente pelos correspondentes em Brasília e principais capitais econômicas.</p>`;
+      : `<p>BRASÍLIA — ${subtitle}</p><p>A cobertura completa segue em apuração permanente pelos correspondentes do Diário 360 na Esplanada e nos tribunais superiores.</p>`;
 
     const catLabels = {
-      politica: "POLÍTICA & PLANALTO",
+      politica: "PLANALTO & MINISTÉRIOS",
       congresso: "CONGRESSO NACIONAL",
-      economia: "ECONOMIA & MERCADOS",
-      judiciario: "JUDICIÁRIO / STF",
+      economia: "MACROECONOMIA & MERCADO",
+      judiciario: "SUPREMO TRIBUNAL FEDERAL",
       poderdata: "PODERDATA / DADOS",
-      internacional: "INTERNACIONAL"
-    };
-
-    const scopeClasses = {
-      EXCLUSIVO: "badge-exclusive",
-      BASTIDORES: "badge-bastidores",
-      ANÁLISE: "badge-analise",
-      URGENTE: "badge-urgente"
+      internacional: "GEOPOLÍTICA & COMÉRCIO"
     };
 
     const newArticle = {
       id: Date.now(),
       category: category,
       categoryLabel: catLabels[category] || "GERAL",
-      scope: scope,
-      scopeClass: scopeClasses[scope] || "badge-exclusive",
+      chapeu: scope,
       title: title,
       subtitle: subtitle,
       bullets: bullets,
       content: content,
       author: author,
-      authorRole: "Redação Diário 360",
+      authorRole: "Redação de Brasília",
       authorAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80",
       image: image,
       caption: "Foto: Cobertura Especial Diário 360",
       readTime: "3 min de leitura",
       date: "Agora mesmo",
       isLead: true,
-      tags: [scope, category.toUpperCase(), "Brasília"]
+      tags: [scope, category.toUpperCase()]
     };
 
     this.articles.unshift(newArticle);
     this.saveArticles();
     this.closeCms();
     document.getElementById('cmsForm').reset();
-
-    this.renderHeroGrid();
+    this.renderFrontPage();
     this.showToast("✓ Notícia publicada com sucesso na capa!", "success");
   }
 
-  // ==========================================
-  // VÍDEO & AO VIVO MODAL
-  // ==========================================
   openLiveModal() {
     document.getElementById('liveModal').classList.add('active');
   }
@@ -1158,79 +828,59 @@ class PortalApp {
     this.openLiveModal();
   }
 
-  // ==========================================
-  // DRIVE 360 (NEWSLETTER)
-  // ==========================================
   handleNewsletter(e) {
     e.preventDefault();
     const email = document.getElementById('nlEmail').value;
-    const succ = document.getElementById('newsletterSuccess');
-    succ.innerHTML = `✓ Sucesso! O e-mail <strong>${email}</strong> receberá o Drive 360 amanhã às 6h.`;
-    this.showToast("Inscrição confirmada no Drive 360!", "success");
+    document.getElementById('newsletterSuccess').innerHTML = `✓ Cadastro confirmado! O Drive 360 será enviado para <strong>${email}</strong> às 06h00.`;
+    this.showToast("Inscrição no Drive 360 realizada!");
     document.getElementById('newsletterForm').reset();
   }
 
-  // ==========================================
-  // COMPARTILHAMENTO
-  // ==========================================
   share(type) {
     const url = window.location.href;
     const title = document.getElementById('artHeadline').textContent;
 
     if (type === 'whatsapp') {
-      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' - Leia no Diário 360: ' + url)}`, '_blank');
+      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' - Diário 360: ' + url)}`, '_blank');
     } else if (type === 'x') {
       window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank');
     } else if (type === 'linkedin') {
       window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
     } else if (type === 'copy') {
       navigator.clipboard.writeText(url).then(() => {
-        this.showToast("✓ Link copiado para a área de transferência!", "success");
-      }).catch(() => {
-        this.showToast("Link pronto para envio!");
+        this.showToast("✓ Link da reportagem copiado!");
       });
     }
   }
 
-  // ==========================================
-  // FLUTUAÇÃO DE MERCADO
-  // ==========================================
-  startMarketFluctuation() {
+  startMarketSimulation() {
     setInterval(() => {
-      const dollarChange = (Math.random() * 0.04 - 0.02).toFixed(3);
-      const ticker = document.getElementById('marketTicker');
-      if (!ticker) return;
-
-      const dollarItem = document.getElementById('tick-dolar');
-      if (dollarItem) {
-        const isUp = parseFloat(dollarChange) >= 0;
-        dollarItem.style.transition = 'background-color 0.4s';
-        dollarItem.style.backgroundColor = isUp ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)';
-        setTimeout(() => dollarItem.style.backgroundColor = '', 800);
+      const delta = (Math.random() * 0.03 - 0.015).toFixed(3);
+      const dolarEl = document.getElementById('fin-dolar');
+      if (dolarEl) {
+        const isUp = parseFloat(delta) >= 0;
+        dolarEl.style.color = isUp ? '#15803D' : '#B91C1C';
+        setTimeout(() => dolarEl.style.color = '', 700);
       }
-    }, 8000);
+    }, 9000);
   }
 
-  // ==========================================
-  // NOTIFICAÇÕES TOAST
-  // ==========================================
-  showToast(message, type = 'default') {
+  showToast(message) {
     const container = document.getElementById('toastContainer');
     if (!container) return;
 
     const toast = document.createElement('div');
-    toast.className = `toast toast-${type}`;
-    toast.innerHTML = `<i class="fa-solid fa-circle-info"></i> <span>${message}</span>`;
+    toast.className = 'toast';
+    toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${message}</span>`;
     container.appendChild(toast);
 
     setTimeout(() => {
       toast.style.opacity = '0';
-      toast.style.transform = 'translateY(10px)';
       toast.style.transition = 'all 0.3s ease';
       setTimeout(() => toast.remove(), 300);
-    }, 3500);
+    }, 3200);
   }
 }
 
-// Inicializa a aplicação
-const app = new PortalApp();
+// Inicializa o Jornal
+const app = new NewspaperApp();
