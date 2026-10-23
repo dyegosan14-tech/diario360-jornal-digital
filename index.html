@@ -1,165 +1,157 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DIÁRIO 360 | Notícias, Poder, Economia e Análise em Tempo Real</title>
-  <meta name="description" content="O portal de notícias que une a autoridade e cobertura ao vivo da CNN com a precisão de dados e agilidade do Poder360. Foco em política, economia e negócios.">
+  <title>DIÁRIO 360 | Poder, Economia, Bastidores e Dados em Tempo Real</title>
+  <meta name="description" content="Jornalismo independente, analítico e orientado a dados. Foco nos bastidores dos Três Poderes em Brasília, economia e pesquisas exclusivas.">
   <meta name="robots" content="index, follow">
   
-  <!-- Google Fonts: Inter (UI), Outfit (Headlines), Merriweather (Editorial) -->
+  <!-- Fontes de Imprensa Consagradas: Merriweather (Editorial), Inter (UI), Playfair (Opinião) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Stylesheet -->
+  <!-- Estilos Oficiais -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- READING PROGRESS INDICATOR (FIXO NO TOPO) -->
+  <!-- BARRA DE LEITURA (FIXA NO TOPO) -->
   <div class="reading-progress-bar" id="readingProgressBar"></div>
 
-  <!-- 1. TOP FINANCIAL & MARKET TICKER (Estilo Bloomberg / Poder360 com Sparklines e Clima) -->
-  <div class="market-bar" id="marketBar">
-    <div class="market-container">
-      <div class="market-location">
-        <i class="fa-solid fa-location-dot"></i> Brasília, DF <span id="currentDate"></span>
-        <span class="weather-pill"><i class="fa-solid fa-sun weather-icon"></i> 28°C Céu limpo</span>
+  <!-- 1. EXPEDIENTE & MASTHEAD DE IMPRENSA (ESTILO JORNAL REAL) -->
+  <div class="masthead-top-bar">
+    <div class="masthead-container">
+      <div class="masthead-info">
+        <span class="masthead-location"><strong>BRASÍLIA, DF</strong></span>
+        <span class="masthead-sep">•</span>
+        <span id="mastheadDate">Sexta-feira, 23 de outubro de 2026</span>
+        <span class="masthead-sep">•</span>
+        <span class="masthead-edition">Edição Digital nº 4.819</span>
+        <span class="masthead-sep">•</span>
+        <span class="weather-badge"><i class="fa-solid fa-sun"></i> 28°C Brasília</span>
       </div>
-      
-      <div class="market-ticker-track">
-        <div class="market-items" id="marketTicker">
-          <!-- Ticker Items com Sparklines em SVG integradas -->
-          <span class="ticker-item" id="tick-dolar">
-            <strong class="ticker-name">DÓLAR</strong> R$ 5,432 
-            <svg class="sparkline-svg spark-up" viewBox="0 0 40 16"><path d="M0,12 Q10,14 20,6 T40,2"/></svg>
-            <span class="badge-up"><i class="fa-solid fa-caret-up"></i> +0,42%</span>
-          </span>
-          <span class="ticker-divider">|</span>
-          <span class="ticker-item" id="tick-euro">
-            <strong class="ticker-name">EURO</strong> R$ 5,894 
-            <svg class="sparkline-svg spark-down" viewBox="0 0 40 16"><path d="M0,4 Q10,2 20,9 T40,14"/></svg>
-            <span class="badge-down"><i class="fa-solid fa-caret-down"></i> -0,18%</span>
-          </span>
-          <span class="ticker-divider">|</span>
-          <span class="ticker-item" id="tick-ibov">
-            <strong class="ticker-name">IBOVESPA</strong> 132.840 pts 
-            <svg class="sparkline-svg spark-up" viewBox="0 0 40 16"><path d="M0,14 Q10,11 20,8 T40,3"/></svg>
-            <span class="badge-up"><i class="fa-solid fa-caret-up"></i> +1,15%</span>
-          </span>
-          <span class="ticker-divider">|</span>
-          <span class="ticker-item" id="tick-btc">
-            <strong class="ticker-name">BITCOIN</strong> US$ 67.890 
-            <svg class="sparkline-svg spark-up" viewBox="0 0 40 16"><path d="M0,13 Q10,8 20,10 T40,2"/></svg>
-            <span class="badge-up"><i class="fa-solid fa-caret-up"></i> +2,40%</span>
-          </span>
-          <span class="ticker-divider">|</span>
-          <span class="ticker-item">
-            <strong class="ticker-name">SELIC</strong> 10,75% <span class="badge-neutral">Meta Copom</span>
-          </span>
-          <span class="ticker-divider">|</span>
-          <span class="ticker-item">
-            <strong class="ticker-name">IPCA (12M)</strong> 4,24% <span class="badge-neutral">Oficial</span>
-          </span>
+
+      <div class="masthead-right-tools">
+        <button id="themeToggleBtn" class="masthead-tool-btn" title="Alternar Modo Escuro / Claro">
+          <i class="fa-solid fa-moon" id="themeIcon"></i> <span>Modo Noturno</span>
+        </button>
+        <span class="masthead-sep">|</span>
+        <button id="openCmsBtn" class="masthead-cms-btn" title="Acessar Redação">
+          <i class="fa-solid fa-pen-nib"></i> Redação (CMS)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. TERMINAL DE COTAÇÕES DE MERCADO (LIMPO E SEM POLUIÇÃO) -->
+  <div class="financial-strip">
+    <div class="financial-container">
+      <span class="fin-label">MERCADOS HOJE:</span>
+      <div class="fin-items" id="finTicker">
+        <div class="fin-item" id="fin-dolar">
+          <span class="fin-name">DÓLAR</span>
+          <span class="fin-val">R$ 5,432</span>
+          <span class="fin-up"><i class="fa-solid fa-caret-up"></i> +0,42%</span>
+        </div>
+        <span class="fin-sep">|</span>
+        <div class="fin-item" id="fin-euro">
+          <span class="fin-name">EURO</span>
+          <span class="fin-val">R$ 5,894</span>
+          <span class="fin-down"><i class="fa-solid fa-caret-down"></i> -0,18%</span>
+        </div>
+        <span class="fin-sep">|</span>
+        <div class="fin-item" id="fin-ibov">
+          <span class="fin-name">IBOVESPA</span>
+          <span class="fin-val">132.840 pts</span>
+          <span class="fin-up"><i class="fa-solid fa-caret-up"></i> +1,15%</span>
+        </div>
+        <span class="fin-sep">|</span>
+        <div class="fin-item" id="fin-selic">
+          <span class="fin-name">SELIC</span>
+          <span class="fin-val">10,75%</span>
+          <span class="fin-tag">Meta Copom</span>
+        </div>
+        <span class="fin-sep">|</span>
+        <div class="fin-item" id="fin-ipca">
+          <span class="fin-name">IPCA (12M)</span>
+          <span class="fin-val">4,24%</span>
+          <span class="fin-tag">IBGE</span>
+        </div>
+        <span class="fin-sep">|</span>
+        <div class="fin-item" id="fin-btc">
+          <span class="fin-name">BITCOIN</span>
+          <span class="fin-val">US$ 67.890</span>
+          <span class="fin-up"><i class="fa-solid fa-caret-up"></i> +2,4%</span>
         </div>
       </div>
-
-      <div class="market-actions">
-        <button id="themeToggleBtn" class="top-action-btn" title="Alternar Modo Escuro / Claro">
-          <i class="fa-solid fa-sun" id="themeIcon"></i>
-        </button>
-        <button id="openCmsBtn" class="top-action-btn cms-pill" title="Acessar Redação">
-          <i class="fa-solid fa-pen-nib"></i> <span>Área da Redação</span>
-        </button>
-      </div>
     </div>
   </div>
 
-  <!-- 2. BREAKING NEWS TICKER (Estilo CNN "URGENTE / AO VIVO") -->
-  <div class="breaking-banner" id="breakingBanner">
-    <div class="breaking-container">
-      <div class="breaking-label">
-        <span class="pulse-indicator"></span>
-        <span class="label-text">URGENTE</span>
-      </div>
-      <div class="breaking-content" id="breakingContent">
-        <a href="javascript:void(0)" onclick="app.openArticle(1)" id="breakingTitle">
-          Congresso aprova novo marco fiscal com metas ajustadas para contas públicas; governo comemora.
-        </a>
-      </div>
-      <div class="breaking-controls">
-        <button class="live-stream-badge" onclick="app.openLiveModal()">
-          <span class="live-wave-icon"><span></span><span></span><span></span></span> SINAL AO VIVO
-        </button>
-        <button class="breaking-close" onclick="document.getElementById('breakingBanner').style.display='none'">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3. MAIN HEADER & BRAND IDENTITY -->
-  <header class="main-header">
-    <div class="header-main-row">
-      <!-- Left side: Hamburger & Live badge -->
-      <div class="header-left">
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <a href="javascript:void(0)" onclick="app.filterCategory('todos')" class="editorial-brand">
-          <span class="brand-sub">PODER • ECONOMIA • BRASIL</span>
-          <div class="brand-logo">
-            <span class="logo-diario">DIÁRIO</span>
-            <span class="logo-360">360<span class="dot">.</span></span>
+  <!-- 3. LOGOTIPO & CABEÇALHO DO JORNAL -->
+  <header class="newspaper-header">
+    <div class="header-inner">
+      <div class="header-brand-block">
+        <a href="javascript:void(0)" onclick="app.filterCategory('todos')" class="brand-link">
+          <div class="brand-eyebrow">JORNALISMO POLÍTICO, ECONÔMICO E BASTIDORES DO PODER</div>
+          <div class="brand-title">
+            <span class="title-diario">DIÁRIO</span>
+            <span class="title-360">360</span>
           </div>
         </a>
       </div>
 
-      <!-- Center: Quick Highlights / Trends -->
-      <div class="header-center">
-        <div class="trending-topics">
-          <span class="trend-title"><i class="fa-solid fa-bolt"></i> EM ALTA:</span>
-          <span class="trend-item" onclick="app.searchNews('Reforma Tributária')">#ReformaTributária</span>
-          <span class="trend-item" onclick="app.searchNews('Banco Central')">#BancoCentral</span>
-          <span class="trend-item" onclick="app.searchNews('STF')">#JulgamentoSTF</span>
-          <span class="trend-item" onclick="app.searchNews('Eleições')">#PoderData</span>
+      <!-- Quick Search & Drive Button -->
+      <div class="header-action-group">
+        <div class="search-mini-bar" id="searchTrigger">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>Buscar por ministros, leis, partidos...</span>
         </div>
-      </div>
-
-      <!-- Right side: Search, Drive 360, Socials -->
-      <div class="header-right">
-        <button class="search-trigger" id="searchTrigger" title="Pesquisar notícias">
-          <i class="fa-solid fa-magnifying-glass"></i> <span>Buscar</span>
-        </button>
-        <a href="#newsletterSection" class="btn-newsletter-top">
-          <i class="fa-regular fa-envelope"></i> <strong>DRIVE 360</strong>
+        <a href="#newsletterSection" class="btn-drive-header">
+          <i class="fa-regular fa-envelope"></i> ASSINAR DRIVE 360
         </a>
       </div>
     </div>
 
-    <!-- Navigation Menu (Categorias) -->
-    <nav class="nav-bar" id="mainNav">
-      <div class="nav-container">
-        <ul class="nav-list">
-          <li class="active" data-cat="todos"><a href="javascript:void(0)" onclick="app.filterCategory('todos')">Início</a></li>
-          <li data-cat="politica"><a href="javascript:void(0)" onclick="app.filterCategory('politica')">Política & Planalto</a></li>
-          <li data-cat="congresso"><a href="javascript:void(0)" onclick="app.filterCategory('congresso')">Congresso</a></li>
+    <!-- SEÇÃO EDITORIAL / CATEGORIAS (Fio de chumbo duplo) -->
+    <nav class="editorial-nav">
+      <div class="nav-wrapper">
+        <ul class="nav-links">
+          <li class="active" data-cat="todos"><a href="javascript:void(0)" onclick="app.filterCategory('todos')">Capa</a></li>
+          <li data-cat="politica"><a href="javascript:void(0)" onclick="app.filterCategory('politica')">Planalto & Política</a></li>
+          <li data-cat="congresso"><a href="javascript:void(0)" onclick="app.filterCategory('congresso')">Congresso Nacional</a></li>
           <li data-cat="economia"><a href="javascript:void(0)" onclick="app.filterCategory('economia')">Economia & Negócios</a></li>
           <li data-cat="judiciario"><a href="javascript:void(0)" onclick="app.filterCategory('judiciario')">Judiciário / STF</a></li>
-          <li data-cat="poderdata"><a href="javascript:void(0)" onclick="app.filterCategory('poderdata')"><span class="highlight-badge">DADOS</span> PoderData</a></li>
+          <li data-cat="poderdata"><a href="javascript:void(0)" onclick="app.filterCategory('poderdata')"><span class="badge-accent-data">DADOS</span> PoderData</a></li>
           <li data-cat="internacional"><a href="javascript:void(0)" onclick="app.filterCategory('internacional')">Internacional</a></li>
           <li data-cat="opiniao"><a href="javascript:void(0)" onclick="app.filterCategory('opiniao')">Colunistas</a></li>
-          <li data-cat="videos"><a href="javascript:void(0)" onclick="app.filterCategory('videos')"><i class="fa-solid fa-circle-play"></i> TV 360</a></li>
+          <li data-cat="videos"><a href="javascript:void(0)" onclick="app.filterCategory('videos')">TV 360</a></li>
         </ul>
       </div>
     </nav>
   </header>
+
+  <!-- 4. FAIXA DE ÚLTIMA HORA (URGENTE / PLANTÃO CNN) -->
+  <div class="plantao-strip" id="breakingBanner">
+    <div class="plantao-container">
+      <div class="plantao-tag">
+        <span class="plantao-pulse"></span>
+        URGENTE
+      </div>
+      <div class="plantao-headline" id="breakingContent">
+        <a href="javascript:void(0)" onclick="app.openArticle(1)" id="breakingTitle">
+          Congresso e Fazenda fecham cronograma para votar diretrizes orçamentárias na próxima quinta-feira
+        </a>
+      </div>
+      <button class="plantao-live-btn" onclick="app.openLiveModal()">
+        <span class="live-dot-red"></span> AO VIVO
+      </button>
+    </div>
+  </div>
 
   <!-- SEARCH OVERLAY MODAL -->
   <div class="search-modal" id="searchModal">
@@ -173,135 +165,221 @@
     </div>
   </div>
 
-  <!-- MAIN PORTAL CONTENT WRAPPER -->
-  <main class="main-wrapper" id="mainWrapper">
+  <!-- CONTAINER PRINCIPAL -->
+  <main class="page-container" id="mainWrapper">
 
-    <!-- VIEW 1: HOME PAGE (Grid Editorial CNN + Poder360) -->
+    <!-- VIEW 1: HOME PAGE REALISTA DE JORNAL -->
     <div id="homeView" class="view-section active">
 
-      <!-- HERO EDITORIAL GRID -->
-      <section class="editorial-hero-grid" id="editorialHero">
-        <!-- Main Lead Story (Super Manchete) -->
-        <article class="lead-story" id="leadStoryContainer">
-          <!-- Populated by JavaScript with top news and badge -->
-        </article>
+      <!-- ============================================================
+           PRIMEIRA PÁGINA (SUPER MANCHETE + NOTÍCIAS IRMÃS + MAIS LIDAS)
+           ============================================================ -->
+      <section class="newspaper-front-grid">
+        
+        <!-- COLUNA 1 & 2: SUPER MANCHETE + NOTÍCIAS COMPLEMENTARES -->
+        <div class="front-main-column">
+          
+          <!-- Super Manchete (Lead Story) -->
+          <article class="lead-anchor" id="leadStoryContainer">
+            <!-- Renderizado via JavaScript com foto jornalística, chapéu e resumo marca-texto -->
+          </article>
 
-        <!-- Secondary Highlights Column -->
-        <aside class="secondary-highlights" id="secondaryHighlights">
-          <!-- 3 strong stories populated by JS with exclusive badges -->
+          <!-- Fio divisor de chumbo horizontal -->
+          <div class="lead-separator-rule"></div>
+
+          <!-- Grade de Notícias Complementares (2 Colunas) -->
+          <div class="lead-subgrid" id="leadSubgridContainer">
+            <!-- Notícias 2 e 3 formatadas como artigos de jornal com linhas de texto densas -->
+          </div>
+        </div>
+
+        <!-- COLUNA 3: COLUNA LATERAL (AS MAIS LIDAS + TEMPO REAL) -->
+        <aside class="front-sidebar-column">
+          
+          <!-- Bloco "AS MAIS LIDAS" (Elemento que todo grande jornal tem) -->
+          <div class="most-read-widget">
+            <div class="widget-header">
+              <h3><i class="fa-solid fa-arrow-trend-up"></i> MAIS LIDAS</h3>
+              <span class="widget-sub">AGORA NO PORTAL</span>
+            </div>
+            <ol class="most-read-list" id="mostReadList">
+              <li onclick="app.openArticle(1)">
+                <span class="rank-number">1</span>
+                <div class="rank-content">
+                  <span class="rank-tag">BASTIDORES</span>
+                  <h4>Lula e Lira selam acordo sobre emendas parlamentares antes de viagem oficial</h4>
+                </div>
+              </li>
+              <li onclick="app.openArticle(2)">
+                <span class="rank-number">2</span>
+                <div class="rank-content">
+                  <span class="rank-tag">ECONOMIA</span>
+                  <h4>Ata do Copom traz sinais sobre corte de juros e mercado reage com queda do dólar</h4>
+                </div>
+              </li>
+              <li onclick="app.openArticle(3)">
+                <span class="rank-number">3</span>
+                <div class="rank-content">
+                  <span class="rank-tag">SUPREMO</span>
+                  <h4>STF fixa maioria e estabelece regras de remoção rápida de contas ilegais</h4>
+                </div>
+              </li>
+              <li onclick="app.openArticle(4)">
+                <span class="rank-number">4</span>
+                <div class="rank-content">
+                  <span class="rank-tag">INTERNACIONAL</span>
+                  <h4>Cúpula do G20 avança em declaração conjunta sobre tributação de bilionários</h4>
+                </div>
+              </li>
+              <li onclick="app.showToast('Nota exclusiva em apuração')">
+                <span class="rank-number">5</span>
+                <div class="rank-content">
+                  <span class="rank-tag">AGRONEGÓCIO</span>
+                  <h4>Safra 2026/2027 bate recorde e projeta superávit cambial de US$ 88 bilhões</h4>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <!-- MINI BOX DE INFORME PUBLICITÁRIO (TIRA CARA DE IA) -->
+          <div class="discreet-sponsor-box">
+            <span class="sponsor-label">PUBLICIDADE</span>
+            <div class="sponsor-content">
+              <strong>Fórum de Lideranças Empresariais 2026</strong>
+              <p>Inscreva-se para o maior encontro de economia e infraestrutura de Brasília.</p>
+              <a href="javascript:void(0)" onclick="alert('Link demonstrativo de anúncio')">Saiba mais →</a>
+            </div>
+          </div>
+
+          <!-- FEED TEMPO REAL / MINUTO A MINUTO (ESTILO AGÊNCIA DE NOTÍCIAS) -->
+          <div class="realtime-feed-box">
+            <div class="feed-header">
+              <div class="feed-title">
+                <span class="feed-live-dot"></span>
+                <h3>RADAR DO PODER</h3>
+              </div>
+              <span class="feed-badge">MINUTO A MINUTO</span>
+            </div>
+
+            <!-- Filtros do Feed -->
+            <div class="feed-filters">
+              <button class="filter-chip active" onclick="app.filterWire('todos')">Todos</button>
+              <button class="filter-chip" onclick="app.filterWire('Congresso')">Congresso</button>
+              <button class="filter-chip" onclick="app.filterWire('Economia')">Economia</button>
+              <button class="filter-chip" onclick="app.filterWire('Judiciário')">STF</button>
+            </div>
+
+            <div class="feed-stream" id="wireStreamContainer">
+              <!-- Notas de tempo real com timestamp estilo Broadcast/Reuters -->
+            </div>
+          </div>
+
         </aside>
-
-        <!-- Right: Real-Time Wire / Minuto a Minuto com Filtros Interativos -->
-        <section class="realtime-wire" id="realtimeWireSection">
-          <div class="wire-header">
-            <div class="wire-title">
-              <span class="live-dot"></span>
-              <h3>MINUTO A MINUTO</h3>
-            </div>
-            <span class="wire-badge">TEMPO REAL</span>
-          </div>
-
-          <!-- Filtros de Tópicos do Wire -->
-          <div class="wire-filters-bar">
-            <button class="wire-filter-btn active" onclick="app.filterWire('todos')">Todos</button>
-            <button class="wire-filter-btn" onclick="app.filterWire('Congresso')">Congresso</button>
-            <button class="wire-filter-btn" onclick="app.filterWire('Economia')">Economia</button>
-            <button class="wire-filter-btn" onclick="app.filterWire('Judiciário')">Judiciário</button>
-          </div>
-
-          <div class="wire-stream" id="wireStreamContainer">
-            <!-- Populated dynamically -->
-          </div>
-        </section>
       </section>
 
-      <!-- SEÇÃO ESPECIAL: PODERDATA (Infográficos, Gráficos Donut/Linhas & Exportação) -->
-      <section class="poderdata-section" id="poderdataSection">
-        <div class="section-badge-bar">
-          <div class="badge-tag yellow-tag"><i class="fa-solid fa-chart-pie"></i> PODERDATA & ANÁLISE ESTATÍSTICA</div>
-          <div class="section-actions">
-            <button class="btn-export-chart" onclick="app.exportChartImage()" title="Baixar imagem em alta resolução para redes sociais">
-              <i class="fa-solid fa-download"></i> Baixar Gráfico (PNG)
-            </button>
-            <span class="methodology-note"><i class="fa-solid fa-shield-check"></i> Amostragem nacional • Margem de erro: ± 2 p.p.</span>
-          </div>
-        </div>
+      <!-- FIO DE CHUMBO SEPARADOR DE SEÇÃO -->
+      <div class="section-divider-lead">
+        <span class="divider-title">PESQUISAS & ESTATÍSTICA POLÍTICA</span>
+      </div>
 
-        <div class="poderdata-grid">
-          <!-- Left: Chart Card com seletor de dados e tipo de visualização -->
-          <div class="chart-card">
-            <div class="chart-card-header">
+      <!-- ============================================================
+           SEÇÃO PODERDATA: GRÁFICO REALISTA DE PESQUISA ELEITORAL/OPINIÃO
+           ============================================================ -->
+      <section class="poderdata-journal-section">
+        <div class="poderdata-frame">
+          <div class="poderdata-meta-bar">
+            <div class="pd-brand">
+              <span class="pd-logo-p">P</span>
               <div>
-                <span class="chart-category">PESQUISA NACIONAL EXCLUSIVA</span>
-                <h3 class="chart-title" id="chartTitle">Avaliação da Gestão Federal e Expectativas Econômicas</h3>
-                <p class="chart-subtitle">Levantamento representativo com 2.500 eleitores em todas as regiões.</p>
-              </div>
-              <div class="chart-switcher-container">
-                <!-- Seletor de Dataset -->
-                <div class="chart-switcher">
-                  <button class="chart-btn active" onclick="app.switchChart('aprovacao')">Aprovação Governo</button>
-                  <button class="chart-btn" onclick="app.switchChart('inflacao')">Expectativa Inflação</button>
-                  <button class="chart-btn" onclick="app.switchChart('congresso')">Avaliação Congresso</button>
-                </div>
-                <!-- Seletor de Tipo (Linha vs Donut vs Barras) -->
-                <div class="chart-type-picker">
-                  <button class="chart-type-btn active" onclick="app.setChartType('line')" title="Gráfico de Evolução (Linhas)"><i class="fa-solid fa-chart-line"></i> Linhas</button>
-                  <button class="chart-type-btn" onclick="app.setChartType('donut')" title="Gráfico Circular (Donut)"><i class="fa-solid fa-chart-pie"></i> Donut</button>
-                  <button class="chart-type-btn" onclick="app.setChartType('bar')" title="Gráfico de Barras"><i class="fa-solid fa-chart-column"></i> Barras</button>
-                </div>
+                <strong>PODERDATA</strong>
+                <span class="pd-sub">DIVISÃO DE PESQUISAS DO DIÁRIO 360</span>
               </div>
             </div>
-
-            <!-- Interactive Canvas com Tooltip flutuante -->
-            <div class="chart-canvas-wrapper" id="chartCanvasWrapper">
-              <canvas id="dataChart" width="600" height="280"></canvas>
-              <div class="chart-tooltip" id="chartTooltip"></div>
-            </div>
-
-            <div class="chart-stats-summary" id="chartStatsSummary">
-              <!-- Rendered via JS -->
+            
+            <div class="pd-controls">
+              <div class="pd-dataset-switcher">
+                <button class="pd-btn active" onclick="app.switchChart('aprovacao')">Aprovação do Governo</button>
+                <button class="pd-btn" onclick="app.switchChart('inflacao')">Expectativa de Inflação</button>
+                <button class="pd-btn" onclick="app.switchChart('congresso')">Avaliação do Congresso</button>
+              </div>
+              <button class="btn-download-poll" onclick="app.exportChartImage()">
+                <i class="fa-solid fa-download"></i> Baixar Gráfico
+              </button>
             </div>
           </div>
 
-          <!-- Right: Data Highlights News -->
-          <div class="data-news-column" id="dataNewsColumn">
-            <!-- 2 news items directly tied to data & numbers -->
+          <div class="pd-content-grid">
+            <!-- Canvas do Gráfico -->
+            <div class="pd-canvas-container">
+              <div class="pd-chart-heading">
+                <h3 id="chartTitle">Avaliação da Gestão Federal (PoderData)</h3>
+                <p id="chartSubtitle">Levantamento presencial e telefônico com 2.500 eleitores em 182 municípios brasileiros.</p>
+              </div>
+              <canvas id="dataChart" width="620" height="260"></canvas>
+              <div class="pd-footer-notes">
+                <span><strong>Margem de erro:</strong> ± 2 pontos percentuais</span>
+                <span><strong>Nível de confiança:</strong> 95%</span>
+                <span><strong>Registro:</strong> Metodologia auditada aberta</span>
+              </div>
+            </div>
+
+            <!-- Resumo Analítico dos Números -->
+            <div class="pd-analysis-column">
+              <div class="pd-stats-row" id="chartStatsSummary">
+                <!-- Preenchido via JS -->
+              </div>
+              <div class="pd-takeaways">
+                <h4>O QUE DIZEM OS NÚMEROS:</h4>
+                <p>A taxa de aprovação mantém estabilidade acima dos 50% após o anúncio da recomposição da faixa de isenção salarial e a desaceleração da cesta básica nas capitais.</p>
+                <p>A maior rejeição continua concentrada nos municípios com forte peso do agronegócio e na região Sul, enquanto o Nordeste sustenta o maior saldo positivo da gestão.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- SEÇÃO MULTIMÍDIA: TV 360 / VÍDEOS COM PICTURE-IN-PICTURE (Estilo CNN Play) -->
-      <section class="multimedia-section" id="multimediaSection">
-        <div class="section-badge-bar">
-          <div class="badge-tag red-tag"><i class="fa-solid fa-video"></i> TV 360 & COBERTURAS MULTIMÍDIA</div>
-          <span class="live-tag"><i class="fa-solid fa-signal"></i> TRANSMISSÕES DIÁRIAS</span>
-        </div>
+      <!-- FIO DE CHUMBO SEPARADOR DE SEÇÃO -->
+      <div class="section-divider-lead">
+        <span class="divider-title">ANÁLISE, BASTIDORES & COLUNISTAS</span>
+      </div>
 
+      <!-- ============================================================
+           COLUNISTAS DE VERDADE (FOTOS RECORTADAS, ASSINATURA E BASTIDORES)
+           ============================================================ -->
+      <section class="columnists-section">
+        <div class="columnists-newspaper-grid" id="columnistsContainer">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- FIO DE CHUMBO SEPARADOR DE SEÇÃO -->
+      <div class="section-divider-lead">
+        <span class="divider-title">TV 360 & COBERTURA EM VÍDEO</span>
+      </div>
+
+      <!-- ============================================================
+           TV 360 (COBERTURA MULTIMÍDIA ELEGANTE)
+           ============================================================ -->
+      <section class="multimedia-section" id="multimediaSection">
         <div class="multimedia-layout">
-          <!-- Main Player Showcase -->
           <div class="video-showcase">
-            <div class="video-player-container">
-              <div class="simulated-player" id="simulatedPlayer">
-                <div class="player-overlay">
-                  <span class="broadcast-badge"><i class="fa-solid fa-circle"></i> ESPECIAL BRASÍLIA</span>
-                  <button class="play-hero-btn" onclick="app.toggleVideoPlay()">
-                    <i class="fa-solid fa-play" id="playIcon"></i>
-                  </button>
-                  <div class="video-info-overlay">
-                    <span class="video-category">ANÁLISE POLÍTICA</span>
-                    <h2 class="video-title">Poder em Foco: Bastidores das articulações da mesa diretora e pautas fiscais</h2>
-                    <span class="video-duration"><i class="fa-regular fa-clock"></i> 24:18 • Ao vivo com nossos âncoras na Esplanada</span>
-                  </div>
+            <div class="simulated-player">
+              <div class="player-overlay">
+                <span class="broadcast-badge"><i class="fa-solid fa-circle"></i> SINAL OFICIAL DE BRASÍLIA</span>
+                <button class="play-hero-btn" onclick="app.toggleVideoPlay()">
+                  <i class="fa-solid fa-play"></i>
+                </button>
+                <div class="video-info-overlay">
+                  <span class="video-category">DIRETO DO PLANALTO</span>
+                  <h3 class="video-title">Poder em Foco: Articulação política define votos decisivos para a pauta fiscal</h3>
+                  <span class="video-duration"><i class="fa-regular fa-clock"></i> 24:18 • Cobertura especial dos correspondentes</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Video Playlist Carousel -->
           <div class="video-playlist">
-            <div class="playlist-header">
-              <h4>Últimos Programas & Entrevistas</h4>
-            </div>
+            <h4 class="playlist-title">PROGRAMAS & ENTREVISTAS</h4>
             <div class="playlist-items" id="playlistContainer">
               <!-- Populated by JS -->
             </div>
@@ -309,203 +387,129 @@
         </div>
       </section>
 
-      <!-- SEÇÃO COLUNISTAS & OPINIÃO DE PESO -->
-      <section class="opinion-section" id="opinionSection">
-        <div class="section-badge-bar">
-          <div class="badge-tag dark-tag"><i class="fa-solid fa-feather-pointed"></i> ANÁLISE, BASTIDORES & OPINIÃO</div>
-          <a href="javascript:void(0)" class="view-all-link">Todos os colunistas <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="columnists-grid" id="columnistsContainer">
-          <!-- Colunistas com fotos, badges e artigos de impacto -->
-        </div>
-      </section>
-
-      <!-- SEÇÃO CATEGORIZADA: POLÍTICA & ECONOMIA (Grade Editorial) -->
-      <section class="editorial-blocks-section">
-        <div class="editorial-row">
-          
-          <!-- Coluna 1: Política & Poder -->
-          <div class="editorial-column">
-            <div class="column-header-bar pol-bar">
-              <h3><i class="fa-solid fa-landmark"></i> POLÍTICA & BASTIDORES</h3>
-              <a href="javascript:void(0)" onclick="app.filterCategory('politica')">Ver mais</a>
-            </div>
-            <div class="column-news-list" id="politicaNewsList">
-              <!-- Populated by JS -->
-            </div>
+      <!-- ============================================================
+           NEWSLETTER: DRIVE 360 (ESTILO PODER360 "DRIVE")
+           ============================================================ -->
+      <section class="drive-briefing-section" id="newsletterSection">
+        <div class="drive-box">
+          <div class="drive-header-row">
+            <span class="drive-tag">BRIEFING EXECUTIVO MATINAL</span>
+            <span class="drive-time">DE SEGUNDA A SEXTA ÀS 06H00</span>
           </div>
-
-          <!-- Coluna 2: Economia, Mercados & Agro -->
-          <div class="editorial-column">
-            <div class="column-header-bar eco-bar">
-              <h3><i class="fa-solid fa-arrow-trend-up"></i> ECONOMIA & NEGÓCIOS</h3>
-              <a href="javascript:void(0)" onclick="app.filterCategory('economia')">Ver mais</a>
-            </div>
-            <div class="column-news-list" id="economiaNewsList">
-              <!-- Populated by JS -->
-            </div>
-          </div>
-
-          <!-- Coluna 3: Judiciário & STF -->
-          <div class="editorial-column">
-            <div class="column-header-bar jud-bar">
-              <h3><i class="fa-solid fa-scale-balanced"></i> JUSTIÇA & LEIS</h3>
-              <a href="javascript:void(0)" onclick="app.filterCategory('judiciario')">Ver mais</a>
-            </div>
-            <div class="column-news-list" id="judiciarioNewsList">
-              <!-- Populated by JS -->
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- NEWSLETTER CONVERSÃO: DRIVE 360 (Estilo "Drive" do Poder360) -->
-      <section class="newsletter-section" id="newsletterSection">
-        <div class="newsletter-card">
-          <div class="newsletter-badge">EXCLUSIVO PARA TOMADORES DE DECISÃO</div>
-          <h2 class="newsletter-title">Receba o <span>DRIVE 360</span> toda manhã às 6h</h2>
-          <p class="newsletter-desc">
-            O resumo executivo mais influente sobre Brasília e os Mercados. Tópicos diretos, análises sem rodeios e antecipação dos fatos que vão movimentar o Congresso, o Palácio e a B3.
+          <h2 class="drive-headline">Receba o <span>DRIVE 360</span> antes da abertura dos mercados</h2>
+          <p class="drive-text">
+            O resumo político e financeiro lido por ministros, presidentes de bancos, senadores e CEOs. Tópicos diretos, sem enrolação, antecipando as decisões que vão mexer com a economia.
           </p>
-          <form class="newsletter-form" id="newsletterForm" onsubmit="app.handleNewsletter(event)">
-            <div class="form-group-inline">
-              <input type="email" id="nlEmail" placeholder="Seu e-mail corporativo ou pessoal" required>
-              <input type="tel" id="nlPhone" placeholder="WhatsApp (opcional p/ alertas rápidos)">
-              <button type="submit" class="btn-subscribe">
-                <i class="fa-solid fa-paper-plane"></i> ASSINAR GRÁTIS
-              </button>
-            </div>
-            <span class="privacy-note"><i class="fa-solid fa-lock"></i> Dados protegidos. Zero spam. Cancele a qualquer momento com 1 clique.</span>
+          <form class="drive-form" id="newsletterForm" onsubmit="app.handleNewsletter(event)">
+            <input type="email" id="nlEmail" placeholder="Seu e-mail corporativo ou institucional" required>
+            <button type="submit" class="btn-drive-submit">RECEBER GRATUITAMENTE</button>
           </form>
-          <div id="newsletterSuccess" class="newsletter-success"></div>
+          <div id="newsletterSuccess" class="drive-success"></div>
         </div>
       </section>
 
     </div> <!-- /homeView -->
 
-    <!-- VIEW 2: FULL ARTICLE READING VIEW COM FERRAMENTAS DE ACESSIBILIDADE E DROP CAP -->
-    <article id="articleView" class="view-section article-container">
-      <div class="article-breadcrumb-bar">
-        <div class="article-breadcrumb">
-          <button onclick="app.backToHome()" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Voltar à Home</button>
-          <span class="crumb-separator">/</span>
-          <span class="crumb-category" id="artBreadcrumbCat">POLÍTICA</span>
-        </div>
-
-        <!-- CONTROLES DE ACESSIBILIDADE & TAMANHO DE FONTE -->
-        <div class="article-tools">
-          <span class="tools-label">Texto:</span>
-          <button class="font-tool-btn" onclick="app.adjustFontSize(-1)" title="Diminuir tamanho da fonte">A-</button>
-          <button class="font-tool-btn" onclick="app.resetFontSize()" title="Tamanho padrão">A</button>
-          <button class="font-tool-btn" onclick="app.adjustFontSize(1)" title="Aumentar tamanho da fonte">A+</button>
-          <button class="font-tool-btn" onclick="window.print()" title="Imprimir Matéria"><i class="fa-solid fa-print"></i></button>
+    <!-- ============================================================
+         VIEW 2: LEITOR DE ARTIGO REALISTA (ESTILO JORNALISMO SÉRIO)
+         ============================================================ -->
+    <article id="articleView" class="view-section article-page-container">
+      
+      <!-- Barra Superior do Leitor -->
+      <div class="article-top-nav">
+        <button onclick="app.backToHome()" class="btn-back-clean">
+          <i class="fa-solid fa-arrow-left"></i> Voltar à Capa
+        </button>
+        <span class="art-editoria-name" id="artBreadcrumbCat">POLÍTICA</span>
+        
+        <div class="art-accessibility-tools">
+          <span class="tool-label">Tamanho do texto:</span>
+          <button onclick="app.adjustFontSize(-1)">A-</button>
+          <button onclick="app.resetFontSize()">A</button>
+          <button onclick="app.adjustFontSize(1)">A+</button>
+          <button onclick="window.print()"><i class="fa-solid fa-print"></i></button>
         </div>
       </div>
 
-      <header class="article-header">
-        <div class="article-badge-row">
-          <span class="editorial-scope-badge badge-exclusive" id="artScopeBadge">EXCLUSIVO</span>
-          <span class="art-category-pill" id="artCatBadge">POLÍTICA</span>
-          <span class="art-live-pill" id="artLiveBadge" style="display: none;"><i class="fa-solid fa-circle"></i> AO VIVO</span>
-          <span class="art-read-time" id="artReadTime"><i class="fa-regular fa-clock"></i> 4 min de leitura</span>
-        </div>
+      <!-- Cabeçalho da Notícia -->
+      <header class="article-headline-block">
+        <div class="art-scope-label" id="artScopeBadge">BASTIDORES EXCLUSIVOS</div>
+        <h1 class="art-main-title" id="artHeadline">Título da Matéria Carregado Aqui</h1>
+        <p class="art-sub-title" id="artSubheadline">Linha fina com contexto aprofundado e rigor analítico para os tomadores de decisão.</p>
 
-        <h1 class="article-headline" id="artHeadline">Título da Matéria Carregado Aqui</h1>
-        <p class="article-subheadline" id="artSubheadline">Linha fina com desdobramento analítico e contexto para os leitores mais exigentes.</p>
-
-        <!-- Meta Author & Date -->
-        <div class="article-meta-box">
-          <div class="author-info">
-            <img src="" alt="Autor" id="artAuthorAvatar" class="author-avatar">
+        <!-- Expediente do Autor & Compartilhamento -->
+        <div class="art-byline-box">
+          <div class="byline-author">
+            <img src="" alt="Autor" id="artAuthorAvatar" class="byline-avatar">
             <div>
-              <div class="author-name" id="artAuthorName">Por Redação Diário 360</div>
-              <div class="publish-dates">
-                <span id="artPubDate">23/10/2026 às 14h30</span> • Atualizado há <span id="artUpdatedTime">12 minutos</span>
-              </div>
+              <div class="byline-name" id="artAuthorName">Por Fabio Vasconcellos, de Brasília</div>
+              <div class="byline-date" id="artPubDate">23 de outubro de 2026 às 15h10 • Atualizado há 14 minutos</div>
             </div>
           </div>
 
-          <!-- Social Share Bar -->
-          <div class="share-actions">
-            <button class="share-btn share-whatsapp" onclick="app.share('whatsapp')" title="Compartilhar no WhatsApp">
-              <i class="fa-brands fa-whatsapp"></i> WhatsApp
-            </button>
-            <button class="share-btn share-x" onclick="app.share('x')" title="Compartilhar no X">
-              <i class="fa-brands fa-x-twitter"></i>
-            </button>
-            <button class="share-btn share-linkedin" onclick="app.share('linkedin')" title="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </button>
-            <button class="share-btn share-copy" onclick="app.share('copy')" title="Copiar Link">
-              <i class="fa-solid fa-link"></i>
-            </button>
+          <div class="byline-shares">
+            <button onclick="app.share('whatsapp')" class="share-btn-clean share-wpp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
+            <button onclick="app.share('x')" class="share-btn-clean share-twitter"><i class="fa-brands fa-x-twitter"></i></button>
+            <button onclick="app.share('linkedin')" class="share-btn-clean share-in"><i class="fa-brands fa-linkedin-in"></i></button>
+            <button onclick="app.share('copy')" class="share-btn-clean share-cp" title="Copiar link"><i class="fa-solid fa-link"></i></button>
           </div>
         </div>
       </header>
 
-      <!-- AUDIO PLAYER (OUVIR A NOTÍCIA - CNN TECH) -->
-      <div class="audio-player-card" id="articleAudioCard">
-        <div class="audio-meta">
-          <button class="audio-play-circle" id="btnAudioPlay" onclick="app.toggleAudioTTS()">
-            <i class="fa-solid fa-play" id="audioPlayIcon"></i>
-          </button>
-          <div>
-            <strong>Ouvir esta matéria narrada</strong>
-            <span class="audio-timer" id="audioTimer">00:00 / 03:45</span>
-          </div>
+      <!-- BARRA DE ÁUDIO DISCRETA (NARRADOR DE NOTÍCIA) -->
+      <div class="article-audio-strip">
+        <button class="audio-toggle-btn" id="btnAudioPlay" onclick="app.toggleAudioTTS()">
+          <i class="fa-solid fa-play" id="audioPlayIcon"></i>
+        </button>
+        <div class="audio-info">
+          <span class="audio-title">Ouvir esta reportagem narrada por IA</span>
+          <span class="audio-time" id="audioTimer">00:00 / 03:45</span>
         </div>
-        <div class="audio-progress-bar">
-          <div class="audio-fill" id="audioProgressFill"></div>
+        <div class="audio-track">
+          <div class="audio-bar-fill" id="audioProgressFill"></div>
         </div>
-        <div class="audio-speed-badge">Voz IA • 1.0x</div>
       </div>
 
-      <!-- PODER360 ICONIC ELEMENT: "O QUE VOCÊ PRECISA SABER" (Bullet Points) -->
-      <div class="executive-summary-card" id="artExecutiveSummary">
-        <div class="summary-header">
-          <i class="fa-solid fa-list-check"></i>
-          <h4>O QUE VOCÊ PRECISA SABER (RESUMO EXECUTIVO)</h4>
+      <!-- O QUE VOCÊ PRECISA SABER: PODER360 STYLE (COM MARCA-TEXTO REAL) -->
+      <div class="executive-takeaways-box" id="artExecutiveSummary">
+        <div class="takeaways-header">
+          <i class="fa-solid fa-bookmark"></i>
+          <h4>O QUE VOCÊ PRECISA SABER:</h4>
         </div>
-        <ul class="summary-bullets" id="artSummaryBullets">
-          <!-- 3 a 5 bullet points populated by JS -->
+        <ul class="takeaways-list" id="artSummaryBullets">
+          <!-- Renderizado via JS com tags de marca-texto -->
         </ul>
       </div>
 
-      <!-- FEATURED IMAGE & CAPTION -->
-      <figure class="article-featured-media">
-        <img src="" alt="Imagem da notícia" id="artImage" class="featured-img">
-        <figcaption id="artImageCaption" class="media-caption">Foto: Agência Brasil / Divulgação</figcaption>
+      <!-- FOTOGRAFIA EDITORIAL COM CRÉDITO DE IMPRENSA -->
+      <figure class="article-media-figure">
+        <img src="" alt="Foto da reportagem" id="artImage" class="article-lead-photo">
+        <figcaption class="photo-caption" id="artImageCaption">
+          Plenário da Câmara dos Deputados durante a sessão deliberativa. Foto: Agência Brasil / Divulgação
+        </figcaption>
       </figure>
 
-      <!-- ARTICLE BODY TEXT (COM SUPORTE A DROP CAP) -->
-      <div class="article-body-content" id="artBody">
-        <!-- Rendered with paragraphs, pull quotes and embedded document box -->
+      <!-- CORPO DA NOTÍCIA (TIPOGRAFIA DE JORNAL IMPRESSO COM LETRA CAPITULAR) -->
+      <div class="article-text-body" id="artBody">
+        <!-- Parágrafos, pull quotes e subheadings -->
       </div>
 
-      <!-- FOOTER DA MATÉRIA: TAGS E DOCUMENTOS OFICIAIS -->
-      <div class="article-footer-tools">
-        <div class="article-tags" id="artTags">
-          <!-- Tags pills -->
+      <!-- EMBED DE DOCUMENTO OFICIAL CITADO (ESTILO PODER360) -->
+      <div class="official-doc-callout">
+        <div class="doc-icon"><i class="fa-regular fa-file-lines"></i></div>
+        <div class="doc-meta">
+          <strong>DOCUMENTO OFICIAL CONSULTADO PELA REDAÇÃO</strong>
+          <p>Confira a íntegra da nota técnica e das emendas protocoladas na mesa diretora.</p>
         </div>
-
-        <div class="document-embed-box">
-          <div class="doc-icon"><i class="fa-solid fa-file-pdf"></i></div>
-          <div class="doc-info">
-            <strong>DOCUMENTO OFICIAL NA ÍNTEGRA</strong>
-            <p>Leia o parecer técnico e a proposta legislativa citada nesta matéria.</p>
-          </div>
-          <a href="javascript:void(0)" onclick="alert('Download do PDF demonstrativo iniciado.')" class="btn-doc-download">
-            <i class="fa-solid fa-download"></i> Baixar PDF (1.4 MB)
-          </a>
-        </div>
+        <button class="btn-download-doc" onclick="alert('Download do PDF oficial iniciado.')">
+          <i class="fa-solid fa-file-arrow-down"></i> Baixar Documento (PDF)
+        </button>
       </div>
 
-      <!-- RELATED NEWS GRID -->
-      <section class="related-news-section">
-        <h3 class="related-title"><i class="fa-solid fa-newspaper"></i> LEIA TAMBÉM SOBRE ESTE ASSUNTO</h3>
-        <div class="related-grid" id="relatedNewsGrid">
+      <!-- NOTÍCIAS RELACIONADAS -->
+      <section class="related-block">
+        <h4 class="related-heading">LEIA MAIS SOBRE O TEMA</h4>
+        <div class="related-columns-grid" id="relatedNewsGrid">
           <!-- Populated by JS -->
         </div>
       </section>
@@ -514,30 +518,30 @@
 
   </main>
 
-  <!-- 4. FLOATING MINI-PLAYER (PICTURE-IN-PICTURE ESTILO CNN PLAY) -->
+  <!-- 5. FLOATING MINI-PLAYER (PICTURE-IN-PICTURE) -->
   <div class="pip-player-box" id="pipPlayerBox">
     <div class="pip-header">
-      <span class="pip-title"><i class="fa-solid fa-tower-broadcast"></i> TV 360 • AO VIVO</span>
+      <span class="pip-title"><i class="fa-solid fa-signal"></i> AO VIVO • TV 360</span>
       <button class="pip-close-btn" onclick="app.closePip()"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="pip-screen">
       <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=400&q=80" alt="Mini player">
       <div class="pip-overlay">
         <button class="pip-play-btn" onclick="app.openLiveModal()"><i class="fa-solid fa-play"></i></button>
-        <span class="pip-label">Plenário em Sessão</span>
+        <span class="pip-label">Sessão da Câmara ao vivo</span>
       </div>
     </div>
   </div>
 
-  <!-- 5. CMS MODAL (PAINEL DA REDAÇÃO - CADASTRE SUA NOTÍCIA) -->
+  <!-- 6. CMS MODAL (REDAÇÃO DIÁRIO 360) -->
   <div class="cms-modal" id="cmsModal">
     <div class="cms-modal-content">
       <div class="cms-modal-header">
         <div class="cms-title-box">
-          <i class="fa-solid fa-pen-to-square"></i>
+          <i class="fa-solid fa-newspaper"></i>
           <div>
-            <h3>SISTEMA DE REDAÇÃO DIÁRIO 360 (CMS)</h3>
-            <p>Publique notícias instantaneamente na Home e no Ticker ao vivo.</p>
+            <h3>MESA DE PUBLICAÇÃO • REDAÇÃO DIÁRIO 360</h3>
+            <p>Gerenciamento de manchetes da capa e boletins urgentes.</p>
           </div>
         </div>
         <button class="cms-close-btn" onclick="app.closeCms()"><i class="fa-solid fa-xmark"></i></button>
@@ -547,86 +551,79 @@
         <div class="cms-form-grid">
           
           <div class="form-field full-width">
-            <label for="cmsTitle">Manchete / Título da Notícia *</label>
-            <input type="text" id="cmsTitle" required placeholder="Ex: Banco Central sinaliza rumos da taxa Selic em ata do Copom">
+            <label for="cmsTitle">Manchete Principal (Título de Capa) *</label>
+            <input type="text" id="cmsTitle" required placeholder="Ex: Lira convoca reunião de líderes e pauta urgência da pauta fiscal">
           </div>
 
           <div class="form-field full-width">
-            <label for="cmsSubtitle">Linha Fina (Subtítulo Explicativo) *</label>
-            <input type="text" id="cmsSubtitle" required placeholder="Ex: Relatório detalha preocupações fiscais e inflação de serviços na economia">
+            <label for="cmsSubtitle">Linha Fina (Subtítulo Contextual) *</label>
+            <input type="text" id="cmsSubtitle" required placeholder="Ex: Articulação mira consenso com a bancada do agro e governadores">
           </div>
 
           <div class="form-field">
-            <label for="cmsCategory">Editoria Principal *</label>
+            <label for="cmsCategory">Editoria *</label>
             <select id="cmsCategory" required>
               <option value="politica">Política & Planalto</option>
               <option value="congresso">Congresso Nacional</option>
               <option value="economia">Economia & Mercados</option>
               <option value="judiciario">Judiciário / STF</option>
-              <option value="poderdata">PoderData / Estatística</option>
+              <option value="poderdata">PoderData (Pesquisas)</option>
               <option value="internacional">Internacional</option>
             </select>
           </div>
 
           <div class="form-field">
-            <label for="cmsScope">Selo Editorial</label>
+            <label for="cmsScope">Selo Editorial (Chapéu)</label>
             <select id="cmsScope">
-              <option value="EXCLUSIVO">EXCLUSIVO (Vermelho)</option>
-              <option value="BASTIDORES">BASTIDORES (Dourado)</option>
-              <option value="ANÁLISE">ANÁLISE (Azul)</option>
-              <option value="URGENTE">URGENTE (Pulsante)</option>
+              <option value="BASTIDORES">BASTIDORES (Dourado Poder360)</option>
+              <option value="EXCLUSIVO">EXCLUSIVO (Vermelho de Imprensa)</option>
+              <option value="ANÁLISE">ANÁLISE POLÍTICA</option>
+              <option value="PLANTÃO">PLANTÃO URGENTE</option>
             </select>
           </div>
 
           <div class="form-field">
-            <label for="cmsAuthor">Jornalista / Colunista *</label>
-            <input type="text" id="cmsAuthor" required value="Redação Brasília">
+            <label for="cmsAuthor">Repórter / Analista *</label>
+            <input type="text" id="cmsAuthor" required value="Fabio Vasconcellos, de Brasília">
           </div>
 
           <div class="form-field">
-            <label for="cmsImage">URL da Imagem de Destaque</label>
-            <input type="url" id="cmsImage" placeholder="https://exemplo.com/imagem.jpg (Deixe vazio para foto padrão)">
+            <label for="cmsImage">URL da Foto de Capa</label>
+            <input type="url" id="cmsImage" placeholder="Deixe vazio para imagem padrão da Agência Brasil">
           </div>
 
           <div class="form-field full-width">
-            <label for="cmsBullets">O que você precisa saber (Resumo estilo Poder360 - 1 por linha)</label>
-            <textarea id="cmsBullets" rows="3" placeholder="Ponto 1: Impacto direto no orçamento&#10;Ponto 2: Votação prevista para quarta-feira&#10;Ponto 3: Reação de lideranças do setor"></textarea>
+            <label for="cmsBullets">O que você precisa saber (Resumo executivo - 1 ponto por linha)</label>
+            <textarea id="cmsBullets" rows="3" placeholder="Ponto 1: Acordo com lideranças partidárias&#10;Ponto 2: Votação prevista para quarta-feira&#10;Ponto 3: Impacto direto no orçamento"></textarea>
           </div>
 
           <div class="form-field full-width">
-            <label for="cmsContent">Corpo da Matéria (Parágrafos jornalísticos)</label>
-            <textarea id="cmsContent" rows="6" placeholder="Escreva os detalhes da notícia com rigor editorial e contexto..."></textarea>
+            <label for="cmsContent">Texto da Reportagem (Parágrafos jornalísticos)</label>
+            <textarea id="cmsContent" rows="5" placeholder="Escreva o texto completo da matéria..."></textarea>
           </div>
 
         </div>
 
         <div class="cms-footer-actions">
           <button type="button" class="btn-cancel" onclick="app.closeCms()">Cancelar</button>
-          <button type="submit" class="btn-publish">
-            <i class="fa-solid fa-cloud-arrow-up"></i> Publicar Matéria no Portal
-          </button>
+          <button type="submit" class="btn-publish">Publicar na Capa</button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- 6. LIVE VIDEO MODAL -->
+  <!-- 7. SINAL AO VIVO MODAL -->
   <div class="live-modal" id="liveModal">
     <div class="live-modal-content">
       <div class="live-modal-header">
-        <div class="live-status-pill">
-          <span class="live-pulse"></span> TRANSMISSÃO AO VIVO • SINAL ABERTO
-        </div>
+        <div class="live-badge-status"><span class="pulse-red"></span> SINAL AO VIVO • BRASÍLIA</div>
         <button onclick="app.closeLiveModal()"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div class="live-video-frame">
-        <div class="simulated-live-stream">
-          <div class="live-tv-watermark">
-            <span class="watermark-bold">DIÁRIO</span><span class="watermark-accent">360</span> NEWS
-          </div>
-          <div class="live-lower-third">
-            <span class="lower-third-tag">BRASÍLIA • AO VIVO</span>
-            <h3>PLENÁRIO DO SENADO VOTA MATÉRIA ORÇAMENTÁRIA COM COBERTURA ESPECIAL</h3>
+      <div class="live-player-area">
+        <div class="simulated-live">
+          <div class="live-watermark">DIÁRIO 360 NEWS</div>
+          <div class="live-ticker-bot">
+            <span>DIRETO DO SENADO:</span> Sessão deliberativa sobre a pauta orçamentária
           </div>
         </div>
       </div>
@@ -636,72 +633,50 @@
   <!-- TOAST NOTIFICATIONS -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <!-- FOOTER INSTITUCIONAL -->
-  <footer class="main-footer">
-    <div class="footer-top-row">
-      <div class="footer-brand-col">
-        <div class="footer-logo">
-          <span class="logo-diario">DIÁRIO</span>
-          <span class="logo-360">360<span class="dot">.</span></span>
-        </div>
-        <p class="footer-mission">
-          Jornalismo independente, analítico e orientado a dados. Informações estratégicas para quem decide e acompanha os bastidores de Brasília e do mundo dos negócios.
+  <!-- FOOTER OFICIAL DE JORNAL IMPRESSO -->
+  <footer class="newspaper-footer">
+    <div class="footer-inner">
+      <div class="footer-column-main">
+        <div class="footer-brand">DIÁRIO 360</div>
+        <p class="footer-desc">
+          O Diário 360 é uma publicação jornalística independente, dedicada à cobertura dos bastidores de Brasília, formulação de políticas públicas, economia nacional e pesquisas eleitorais.
         </p>
-        <div class="footer-socials">
-          <a href="#" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        <div class="footer-expediente">
+          <span><strong>Diretor de Redação:</strong> Dyego</span> •
+          <span><strong>Editor-Chefe de Política:</strong> Fabio Vasconcellos</span> •
+          <span><strong>Editora de Economia:</strong> Renata Aguiar</span>
         </div>
       </div>
 
-      <div class="footer-links-col">
-        <h4>EDITORIAS</h4>
+      <div class="footer-column-links">
+        <h4>SEÇÕES</h4>
         <ul>
-          <li><a href="javascript:void(0)" onclick="app.filterCategory('politica')">Política & Planalto</a></li>
-          <li><a href="javascript:void(0)" onclick="app.filterCategory('congresso')">Congresso Nacional</a></li>
-          <li><a href="javascript:void(0)" onclick="app.filterCategory('economia')">Economia & Mercados</a></li>
-          <li><a href="javascript:void(0)" onclick="app.filterCategory('judiciario')">Judiciário / STF</a></li>
+          <li><a href="javascript:void(0)" onclick="app.filterCategory('politica')">Planalto & Ministérios</a></li>
+          <li><a href="javascript:void(0)" onclick="app.filterCategory('congresso')">Câmara e Senado</a></li>
+          <li><a href="javascript:void(0)" onclick="app.filterCategory('economia')">Macroeconomia & Mercado</a></li>
+          <li><a href="javascript:void(0)" onclick="app.filterCategory('judiciario')">Supremo Tribunal Federal</a></li>
           <li><a href="javascript:void(0)" onclick="app.filterCategory('poderdata')">PoderData (Pesquisas)</a></li>
-          <li><a href="javascript:void(0)" onclick="app.filterCategory('internacional')">Internacional</a></li>
         </ul>
       </div>
 
-      <div class="footer-links-col">
-        <h4>SERVIÇOS & PRODUTOS</h4>
+      <div class="footer-column-links">
+        <h4>SERVIÇOS</h4>
         <ul>
-          <li><a href="#newsletterSection">Drive 360 (Newsletter)</a></li>
-          <li><a href="javascript:void(0)" onclick="app.openLiveModal()">TV 360 (Ao Vivo)</a></li>
-          <li><a href="javascript:void(0)" onclick="app.openCms()">Painel da Redação</a></li>
-          <li><a href="#">Assinaturas Corporativas</a></li>
-          <li><a href="#">Mídia Kit / Publicidade</a></li>
+          <li><a href="#newsletterSection">Drive 360 (Briefing)</a></li>
+          <li><a href="javascript:void(0)" onclick="app.openCms()">Acesso da Redação</a></li>
           <li><a href="#">Código de Ética Editorial</a></li>
+          <li><a href="#">Privacidade & LGPD</a></li>
+          <li><a href="#">Fale com os Editores</a></li>
         </ul>
-      </div>
-
-      <div class="footer-links-col">
-        <h4>TRANSPARÊNCIA</h4>
-        <p class="transparency-text">
-          O Diário 360 segue rigorosos padrões de checagem, citação de fontes primárias e transparência no financiamento de coberturas especiais.
-        </p>
-        <div class="certifications-row">
-          <span class="cert-pill"><i class="fa-solid fa-shield-halved"></i> Checagem 100%</span>
-          <span class="cert-pill"><i class="fa-solid fa-database"></i> Metodologia Aberta</span>
-        </div>
       </div>
     </div>
 
-    <div class="footer-bottom-bar">
-      <div>© 2026 Diário 360 Notícias e Comunicação Ltda. Todos os direitos reservados.</div>
-      <div class="footer-legal-links">
-        <a href="#">Termos de Uso</a> • <a href="#">Privacidade & LGPD</a> • <a href="#">Fale com a Redação</a>
-      </div>
+    <div class="footer-bottom-copy">
+      © 2026 Diário 360 Comunicações Ltda. Todos os direitos reservados. Proibida a reprodução sem citação de fonte.
     </div>
   </footer>
 
-  <!-- Application Script -->
+  <!-- Script Oficial -->
   <script src="app.js"></script>
 </body>
 </html>
